@@ -15,9 +15,9 @@ mysql数据库没有放出。
 ## 预览
 ### Dashboard
 ![](https://github.com/wangwenbo000/finalMe/blob/master/www/static/preview.png?raw=true)
-![](http://www007.upp.so-net.ne.jp/nekoteya/n_icon/i_chara/hatunemiku_01.gif)
 #### 所以这就是目前我自己我记录的一个小工具
 #### 正在努力完善与优化 
+![](http://www007.upp.so-net.ne.jp/nekoteya/n_icon/i_chara/hatunemiku_01.gif)
 ## 开发：
 - vue
 - thinkjs
