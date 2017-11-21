@@ -12,8 +12,15 @@
 目前勉强自足，还存在一些问题，找时间整理这块。
 config文件也在优化
 mysql数据库没有放出。
-## Design Preview
+## 预览
+### Dashboard
 ![](https://github.com/wangwenbo000/finalMe/blob/master/www/static/preview.png?raw=true)
+### 撰写
+![](https://github.com/wangwenbo000/finalMe/blob/master/www/static/preview2.png?raw=true)
 #### 所以这就是目前我自己我记录的一个小工具
-
-Application created by [ThinkJS](http://www.thinkjs.org)
+## 正在努力完善与优化
+## 开发：
+- vue
+- thinkjs
+## dev tool
+- vscode
