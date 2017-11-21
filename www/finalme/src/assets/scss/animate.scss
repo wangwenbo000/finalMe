@@ -1,0 +1,34 @@
+.zoom-enter-active{
+  animation-name: zoomIn;
+  animation-duration: .2s;
+  animation-fill-mode: both;
+}
+.zoom-leave-active,{
+  animation-name: zoomOut;
+  animation-duration: .2s;
+  animation-fill-mode: both;
+}
+@keyframes zoomIn {
+  from {
+    opacity: 0;
+    transform: scale3d(.3, .3, .3);
+  }
+
+  50% {
+    opacity: 1;
+  }
+}
+@keyframes zoomOut {
+  from {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0;
+    transform: scale3d(.3, .3, .3);
+  }
+
+  to {
+    opacity: 0;
+  }
+}

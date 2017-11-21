@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+<channel>
+    <title>{{config.title}}</title>
+    <link>{{config.domain}}</link>
+    <description>专注 WEB 端开发，关注 WEB 性能。</description>
+    <link href="{{config.domain}}/rss.html" rel="self"/>
+    <link href="{{config.domain}}"/>
+    <language>zh-cn</language>
+    <lastBuildDate>{{think.datetime()}}</lastBuildDate>
+    {% for post in list %}
+    <item>
+        <title>{{post.title}}</title>
+        <link>{{config.domain}}/{{ post.routename }}.html</link>
+        <updated>{{think.datetime()}}</updated>
+        <description>
+            {{post.content}}
+            <a href="{{domain}}/{{ post.routename }}">阅读全文</a>
+        </description>
+        <pubDate>{{think.datetime(post.date)}}</pubDate>
+        <guid>{{config.domain}}/{{ post.routename }}.html</guid>
+    </item>
+    {% endfor %}
+</channel>
+</rss>

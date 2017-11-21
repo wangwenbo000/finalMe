@@ -1,0 +1,41 @@
+{% extends "./public.html" %}
+{% block title %}
+归档 | {{title}}
+{% endblock %}
+{% block content %}
+<div class="activeinfo">
+  <h1>归档</h1>
+  <p>
+    💬 从最早使用wordpress、tt,到现在,一直希望可以坚持记录,不知不觉这么多年过去,发现自己的这个想法并没有实现,反而自己做的事情越来越杂乱,2016年初,我重拾这个想法,加上现在的框架(thinkjs)等的便捷,我便开始了这个博客系统的折腾,到目前为止它还没有完善,只是一个临时的测试版本,我还在不断的完善.本站部署于阿里云,使用thinkjs作为主框架.希望能跟更多的前辈交流学习.</p>
+</div>
+<ul class="cate-list">
+  <li class="title">日期列表</li>
+  {% for list in archiveList %}
+  <li><a href="#{{think.datetime(list.date, 'YYYY年 MM月')}}" name="{{think.datetime(list.date, 'YYYY年 MM月')}}">{{think.datetime(list.date*1000, 'YYYY年 MM月')}}</a></li>
+  {% endfor %}
+</ul>
+{% for list in archiveList %}
+<section class="archives">
+  <h1 class="year" name="{{think.datetime(list.date, 'YYYY年 MM月')}}">{{think.datetime(list.date*1000, 'YYYY年 MM月')}}</h1>
+  <ul>
+    {% for post in list.list %}
+    <li><a href="/article/{{post.routename}}">{{post.title}}</a>
+      <span>-&nbsp;{{post.category}}&nbsp;&nbsp;</span>
+      <time><i>( {{think.datetime(post.date, 'MM月DD, YYYY')}} )</i></time>
+    </li>
+    {% endfor %}
+  </ul>
+</section>
+{% endfor %}
+<div class="activeinfo">
+  <h1>标签</h1>
+  <p>本站所有文章一共使用了「 {{tagsLength}} 」个标签.您可以按照关键词标签迅速找到感兴趣的内容.</p>
+</div>
+<ul class="taglist">
+  {% for list in tagsList | sort(reverse=true, attribute='count') %}
+  <a href="/tag/{{list.name}}.html">
+    <li># {{list.name}}<span>{{list.count}}</span></li>
+  </a>
+  {% endfor %}
+</ul>
+{% endblock %}

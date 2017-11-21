@@ -1,0 +1,52 @@
+{
+  "name": "thinkjs-application",
+  "description": "application created by thinkjs",
+  "version": "1.0.0",
+  "scripts": {
+    "start": "node development.js",
+    "compile": "babel --no-babelrc src/ --presets think-node --out-dir app/",
+    "lint": "eslint src/",
+    "lint-fix": "eslint --fix src/"
+  },
+  "dependencies": {
+    "axios": "^0.16.2",
+    "highlight.js": "^9.12.0",
+    "markdown-it": "^8.4.0",
+    "markdown-it-emoji": "^1.4.0",
+    "markdown-it-imsize": "^2.0.1",
+    "markdown-it-link-attributes": "^2.0.0",
+    "markdown-it-link-target": "^1.0.2",
+    "markdown-it-toc": "^1.1.0",
+    "markdown-it-toc-and-anchor": "^4.1.2",
+    "moment": "^2.19.2",
+    "npm": "^5.5.1",
+    "phpass": "^0.1.1",
+    "remove-markdown": "^0.2.2",
+    "think-cache": "^1.0.0",
+    "think-cache-file": "^1.0.8",
+    "think-logger3": "^1.0.0",
+    "think-model": "^1.0.0",
+    "think-model-mysql": "^1.0.0",
+    "think-session": "^1.0.0",
+    "think-session-file": "^1.0.5",
+    "think-view": "^1.0.0",
+    "think-view-nunjucks": "^1.0.1",
+    "thinkjs": "^3.0.0"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.24.1",
+    "babel-preset-think-node": "^1.0.0",
+    "node-notifier": "^5.0.2",
+    "think-watcher": "^3.0.0",
+    "think-inspect": "0.0.2",
+    "think-babel": "^1.0.3",
+    "eslint": "^4.2.0",
+    "eslint-config-think": "^1.0.0"
+  },
+  "repository": "",
+  "license": "MIT",
+  "engines": {
+    "node": ">=6.0.0"
+  },
+  "readmeFilename": "README.md"
+}
