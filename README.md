@@ -18,7 +18,7 @@ mysql数据库没有放出。
 ### 撰写
 ![](https://github.com/wangwenbo000/finalMe/blob/master/www/static/preview2.png?raw=true)
 #### 所以这就是目前我自己我记录的一个小工具
-## 正在努力完善与优化
+## 正在努力完善与优化
 ## 开发：
 - vue
 - thinkjs
