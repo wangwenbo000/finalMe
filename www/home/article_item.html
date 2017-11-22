@@ -49,6 +49,7 @@
     throttle: 250,
     unload: false,
     callback: function(element, op) {
+      element.setAttribute('class', 'loaded');
       console.log(element, 'has been', op + 'ed');
     }
   });
