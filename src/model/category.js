@@ -6,8 +6,9 @@ module.exports = class extends think.Model {
         key: 'id',
         fKey: 'cateid',
         name: 'list',
-        relation: false
-        // field: 'id,title,category'
+        relation: false,
+        where: {show: ['NOTIN', [0, 1, 2, 4]]},
+        field: 'id,title,cateid'
       }
     };
   }

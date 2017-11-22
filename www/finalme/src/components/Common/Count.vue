@@ -29,11 +29,11 @@
       </li>
       <li class="memery">
         <div class="memeryText">
-           Free: {{count.OSi.totalmem/1024/1024/1024}}GB
+           Free: {{(count.OSi.totalmem/1024/1024/1024).toFixed(4)}}GB
         </div>
         <div class="memeryBar">
           <span :style="{width:memCount+'%'}">
-            {{parseInt(count.OSi.totalmem/1024/1024/1024-count.OSi.freemem/1024/1024/1024)}}GB
+            {{(count.OSi.totalmem/1024/1024/1024-count.OSi.freemem/1024/1024/1024).toFixed(4)}}GB
           </span>
         </div>
       </li>

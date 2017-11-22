@@ -15,7 +15,9 @@
 </ul>
 {% for list in cate_list %}
 <section class="archives">
-  <h1 class="year" name="{{list.name}}">{{list.name}}&nbsp;({{list.list.length}})</h1>
+  {% if list.list.length %}
+    <h1 class="year" name="{{list.name}}">{{list.name}}&nbsp;({{list.list.length}})</h1>
+  {% endif %}
   <ul>
     {% for post in list.list %}
     <li><a href="/article/{{post.routename}}">{{post.title}}</a>

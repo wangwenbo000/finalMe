@@ -11,8 +11,7 @@ module.exports = class extends think.Controller {
     isSupportBrowser = !think.isEmpty(isSupportBrowser) || false;
     return this.assign({
       newArticle: newTitle.title,
-      isSupportBrowser: isSupportBrowser,
-      version: think.version
+      isSupportBrowser: isSupportBrowser
     });
   }
   date(date, format = 'MM月DD, YYYY') {

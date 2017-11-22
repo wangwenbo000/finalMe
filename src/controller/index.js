@@ -13,7 +13,6 @@ module.exports = class extends Base {
       .count();
     const pnPosition = !(pn > Math.ceil(pnTotal / listrows));
     const data = await this.model('article').getlist(pn, listrows, pnPosition);
-    console.log(data.data[0]);
     this.assign({
       articleList: data
     });
