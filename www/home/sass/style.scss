@@ -544,6 +544,7 @@ footer {
     }
   }
   header {
+    height:176px;
     text-align: center;
     .subtitle, h1 {
       vertical-align: baseline;
@@ -551,16 +552,20 @@ footer {
       text-indent: 0;
     }
     .subtitle {
-      margin-top: 10px;
+      // margin-top: 10px;
     }
     .sharegroup {
       width: 134px;
-      margin: 20px auto 2px auto;
+      margin: 0 auto;
       float: none;
       border-left: none;
     }
-    .weibo {
-      margin-left: 0;
+    // .weibo {
+    //   margin-left: 0;
+    // }
+    .menu{
+      border:none;
+      width:25%;
     }
   }
   .pagination {
