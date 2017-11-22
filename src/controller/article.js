@@ -29,7 +29,7 @@ module.exports = class extends Base {
     md.use(require('markdown-it-emoji'));
     md.use(require('markdown-it-toc-and-anchor').default);
     list[0].content = md.render(list[0].content.replace('[===]', ''));
-    list[0].content = list[0].content.replace(/img([\s\S]*?)src=/g, 'img data-echo=');
+    list[0].content = list[0].content.replace(/img([\s\S]*?)src=/g, 'img class="lazyload" data-src=');
     this.assign({
       'article': list[0],
       'suggestList': await this.suggestlist(list[0].cateid, list[0].id),
