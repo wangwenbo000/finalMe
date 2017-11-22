@@ -315,9 +315,12 @@ article {
       border: 1px solid #efefef;
       padding: 0;
     }
-    img.lazyload,
-    img.lazyloading {
+    img.lazyload{
       opacity: 0;
+    }
+    img.lazyloading {
+      opacity: 1;
+      transition: opacity 300ms;
     }
     img.lazyloaded {
       height: auto!important;
