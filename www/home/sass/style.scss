@@ -316,6 +316,7 @@ article {
       padding: 0;
     }
     img.lazyload{
+      height: auto!important;
       opacity: 0;
     }
     img.lazyloaded {
