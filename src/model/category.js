@@ -8,7 +8,7 @@ module.exports = class extends think.Model {
         name: 'list',
         relation: false,
         where: {show: ['NOTIN', [0, 1, 2, 4]]},
-        field: 'id,title,cateid'
+        field: 'id,title,cateid,routename'
       }
     };
   }
