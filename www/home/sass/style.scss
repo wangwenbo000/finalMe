@@ -318,14 +318,10 @@ article {
     img.lazyload{
       opacity: 0;
     }
-    img.lazyloading {
-      opacity: 1;
-      transition: opacity 300ms;
-    }
     img.lazyloaded {
       height: auto!important;
       opacity: 1;
-      transition: opacity 300ms;
+      // transition: opacity 300ms;
     }
     img[alt='center']{
       margin: 0 auto;
