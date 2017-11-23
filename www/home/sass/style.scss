@@ -133,6 +133,7 @@ header {
   }
   .github {
     @include share-icon(26px, $github-icon);
+    display: none;
   }
   .linkin {
     @include share-icon(26px, $linkin-icon);
@@ -146,10 +147,11 @@ header {
   }
   .search {
     @include share-icon(26px, $search-icon);
+    display: none;
   }
   .twitter {
     @include share-icon(26px, $twitter-icon);
-    display: none;
+    // display: none;
   }
 }
 

@@ -5,6 +5,7 @@ module.exports = class extends Base {
   async getAction() {
     const page = this.post('page');
     const filter = this.post('filter');
+    const listrows = this.config('adminPageSize');
     const list = await this.model('article')
       .where({
         show: filter
@@ -13,7 +14,7 @@ module.exports = class extends Base {
         show: 'ASC',
         id: 'DESC'
       })
-      .page(page, 20)
+      .page(page, listrows)
       .countSelect();
     return this.success(list);
   }
