@@ -43,7 +43,18 @@ a {
     color: #02f;
   }
 }
-
+table{
+  border:1px solid #687a86;
+  border-collapse:collapse;
+  th{
+    background: #abb7bf;
+    color:#fff;
+  }
+  tr,td,th{
+    border: 1px solid #687a86;
+    padding: 2px 4px;
+  }
+}
 #container {
   max-width: $width;
   min-width: 320px;

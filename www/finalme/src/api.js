@@ -21,7 +21,10 @@ axios.interceptors.response.use(response => {
       case 401:
         router.replace({
           name: 'Login',
-          query: { redirect: router.currentRoute.fullPath }
+          query: {
+            redirect: router.currentRoute.fullPath,
+            err: error.response.statusText
+          }
         })
         localStorage.auth = false
         localStorage.login = null

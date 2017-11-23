@@ -29,11 +29,11 @@
       </li>
       <li class="memery">
         <div class="memeryText">
-           Free: {{(count.OSi.totalmem/1024/1024/1024).toFixed(4)}}GB
+           Free: {{(count.OSi.totalmem/1024/1024/1024).toFixed(2)}}GB
         </div>
         <div class="memeryBar">
           <span :style="{width:memCount+'%'}">
-            {{(count.OSi.totalmem/1024/1024/1024-count.OSi.freemem/1024/1024/1024).toFixed(4)}}GB
+            {{(count.OSi.totalmem/1024/1024/1024-count.OSi.freemem/1024/1024/1024).toFixed(2)}}GB
           </span>
         </div>
       </li>
@@ -164,15 +164,19 @@ export default {
         padding: 10px 0 0 10px;
       }
       .memeryBar{
-        background: #c8c8d5;
-        height: 47px;
+        background: #e1efe6;
+        background-image:linear-gradient(45deg, #d5e7da 50%, transparent 0);
+        background-size: 11px 11px;
+        height: 42px;
+        margin-top: 4px;
+        border-top: 1px solid #42b649;
         span{
           display: flex;
           width: 0;
           align-items: center;
           justify-content: center;
           color: #fff;
-          height: 47px;
+          height: 42px;
           background: #44b549;
           transition: width .6s;
         }

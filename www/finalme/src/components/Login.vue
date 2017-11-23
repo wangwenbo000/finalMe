@@ -6,7 +6,7 @@
     FinalMe Login
   </div>
   <form @submit.prevent="onSubmit">
-    <input type="text" placeholder="UserName" v-model="userName">
+    <input type="text" placeholder="UserName" v-model="userName" autofocus>
     <input type="password" placeholder="PassWord" v-model="passWord">
     <button>Login</button>
   </form>
@@ -31,6 +31,11 @@ export default {
   },
   async created () {
     await this.get500px()
+  },
+  watch: {
+    '$route.query.err': function (o) {
+      console.log(o)
+    }
   },
   methods: {
     ...mapActions([
