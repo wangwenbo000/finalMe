@@ -33,11 +33,13 @@ module.exports = class extends Base {
       tokens[idx].attrPush([ 'data-src', tokens[idx].attrs[0][1] ]);
       tokens[idx].attrs[0][1] = '';
     });
+    md.use(require('markdown-it-for-inline'), 'replace_sign_line', 'text', function(tokens, idx) {
+      tokens[idx].content = tokens[idx].content.replace('[===]', '');
+    });
     md.use(require('markdown-it-imsize'), {autofill: true});
-    // md.use(require('markdown-it-emoji'));
     md.use(require('markdown-it-toc-and-anchor').default);
 
-    list[0].content = md.render(list[0].content.replace('[===]', ''));
+    list[0].content = md.render(list[0].content);
     this.assign({
       'article': list[0],
       'suggestList': await this.suggestlist(list[0].cateid, list[0].id),

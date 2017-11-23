@@ -597,90 +597,99 @@ Orginal Style from ethanschoonover.com/solarized (c) Jeremy Hull <sourdrums@gmai
 
 */
 
-.hljs {
-  code {
-    background: none;
-    margin: 0;
-    padding: 0;
-    border: none;
-  }
-  line-height: 23px;
-  border: 1px solid #F3F3F3;
-  font-size: 14px;
-  display: block;
-  overflow-x: auto;
-  padding: 1.2em;
-  background: #fbfbfb;
-  color: #657b83;
-}
+// .hljs {
+//   code {
+//     background: none;
+//     margin: 0;
+//     padding: 0;
+//     border: none;
+//   }
+//   border-radius: 3px;
+//   line-height: 23px;
+//   border: 1px solid #F3F3F3;
+//   font-size: 14px;
+//   display: block;
+//   overflow-x: auto;
+//   padding: 1.2em;
+//   background: #fbfbfb;
+//   color: #657b83;
+// }
 
-.hljs-comment,
-.hljs-quote {
-  color: #93a1a1;
-}
+// .hljs-comment,
+// .hljs-quote {
+//   color: #93a1a1;
+// }
 
 /* Solarized Green */
-.hljs-keyword,
-.hljs-selector-tag,
-.hljs-addition {
-  color: #398edf;
-}
+// .hljs-keyword,
+// .hljs-selector-tag,
+// .hljs-addition {
+//   color: #398edf;
+// }
 
 /* Solarized Cyan */
-.hljs-number,
-.hljs-string,
-.hljs-meta .hljs-meta-string,
-.hljs-literal,
-.hljs-doctag,
-.hljs-regexp {
-  color: #2aa198;
-}
+// .hljs-number,
+// .hljs-string,
+// .hljs-meta .hljs-meta-string,
+// .hljs-literal,
+// .hljs-doctag,
+// .hljs-regexp {
+//   color: #2aa198;
+// }
 
 /* Solarized Blue */
-.hljs-title,
-.hljs-section,
-.hljs-name,
-.hljs-selector-id,
-.hljs-selector-class {
-  color: #268bd2;
-}
+// .hljs-title,
+// .hljs-section,
+// .hljs-name,
+// .hljs-selector-id,
+// .hljs-selector-class {
+//   color: #268bd2;
+// }
 
 /* Solarized Yellow */
-.hljs-attribute,
-.hljs-attr,
-.hljs-variable,
-.hljs-template-variable,
-.hljs-class .hljs-title,
-.hljs-type {
-  color: rgb(191, 15, 147);
-}
+// .hljs-attribute,
+// .hljs-attr,
+// .hljs-variable,
+// .hljs-template-variable,
+// .hljs-class .hljs-title,
+// .hljs-type {
+//   color: rgb(191, 15, 147);
+// }
 
 /* Solarized Orange */
-.hljs-symbol,
-.hljs-bullet,
-.hljs-subst,
-.hljs-meta,
-.hljs-meta .hljs-keyword,
-.hljs-selector-attr,
-.hljs-selector-pseudo,
-.hljs-link {
-  color: #cb4b16;
-}
+// .hljs-symbol,
+// .hljs-bullet,
+// .hljs-subst,
+// .hljs-meta,
+// .hljs-meta .hljs-keyword,
+// .hljs-selector-attr,
+// .hljs-selector-pseudo,
+// .hljs-link {
+//   color: #cb4b16;
+// }
 
 /* Solarized Red */
-.hljs-built_in,
-.hljs-deletion {
-  color: #dc322f;
-}
+// .hljs-built_in,
+// .hljs-deletion {
+//   color: #dc322f;
+// }
 
-.hljs-formula {
-  background: #eee8d5;
-}
+// .hljs-formula {
+//   background: #eee8d5;
+// }
 
-.hljs-emphasis {
-  font-style: italic;
-}
+// .hljs-emphasis {
+//   font-style: italic;
+// }
 
-.hljs-strong {
-  font-weight: bold;
-}
+// .hljs-strong {
+//   font-weight: bold;
+// }
+
+.hljs{code {
+  background: none;
+  margin: 0;
+  padding: 0;
+  border: none;
+  font-family: Consolas,Monaco,'Andale Mono',monospace;
+}border-radius:3px;display:block;overflow-x:auto;padding:0.5em;color:#abb2bf;background:#282c34}.hljs-comment,.hljs-quote{color:#5c6370;font-style:italic}.hljs-doctag,.hljs-keyword,.hljs-formula{color:#c678dd}.hljs-section,.hljs-name,.hljs-selector-tag,.hljs-deletion,.hljs-subst{color:#e06c75}.hljs-literal{color:#56b6c2}.hljs-string,.hljs-regexp,.hljs-addition,.hljs-attribute,.hljs-meta-string{color:#98c379}.hljs-built_in,.hljs-class .hljs-title{color:#e6c07b}.hljs-attr,.hljs-variable,.hljs-template-variable,.hljs-type,.hljs-selector-class,.hljs-selector-attr,.hljs-selector-pseudo,.hljs-number{color:#d19a66}.hljs-symbol,.hljs-bullet,.hljs-link,.hljs-meta,.hljs-selector-id,.hljs-title{color:#61aeee}.hljs-emphasis{font-style:italic}.hljs-strong{font-weight:bold}.hljs-link{text-decoration:underline}
