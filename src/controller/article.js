@@ -25,11 +25,19 @@ module.exports = class extends Base {
         return '<pre class="hljs"><code>' + md.utils.escapeHtml(str) + '</code></pre>';
       }
     });
+    md.use(require('markdown-it-for-inline'), 'url_new_win', 'link_open', function(tokens, idx) {
+      tokens[idx].attrPush([ 'target', '_blank' ]);
+    });
+    md.use(require('markdown-it-for-inline'), 'lazyload', 'image', function(tokens, idx) {
+      tokens[idx].attrPush([ 'class', 'lazyload' ]);
+      tokens[idx].attrPush([ 'data-src', tokens[idx].attrs[0][1] ]);
+      tokens[idx].attrs[0][1] = '';
+    });
     md.use(require('markdown-it-imsize'), {autofill: true});
-    md.use(require('markdown-it-emoji'));
+    // md.use(require('markdown-it-emoji'));
     md.use(require('markdown-it-toc-and-anchor').default);
+
     list[0].content = md.render(list[0].content.replace('[===]', ''));
-    list[0].content = list[0].content.replace(/img([\s\S]*?)src=/g, 'img class="lazyload" data-src=');
     this.assign({
       'article': list[0],
       'suggestList': await this.suggestlist(list[0].cateid, list[0].id),
