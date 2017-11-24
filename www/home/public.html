@@ -1,15 +1,16 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-  <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"/>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="author" content="{{config.author}}">
   <meta name="description" content="{% block description %}{{config.description}} 最新文章:{{newArticle}}{% endblock %}">
   <meta name="keywords" content="{% block keywords %}{{config.keywords | replace('|',',')}}{% endblock %}">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>{% block title %}{{config.title}}{% endblock %}</title>
   <link rel="alternate" href="/rss.html"  type="application/atom+xml" title="{{config.title}}">
   <link href="/static/css/home_style.css" rel="stylesheet" type="text/css" /> 
-  <title>{% block title %}{{config.title}}{% endblock %}</title>
 </head>
 <body>
 {% if isSupportBrowser %}
