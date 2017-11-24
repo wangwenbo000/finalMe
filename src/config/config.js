@@ -3,7 +3,7 @@ module.exports = {
   // 运行端口
   port: 8280,
   // 站点标题
-  title: '👨‍🎨小博叔叔',
+  title: '小博叔叔',
   // 站点作者
   author: '小博叔叔',
   // 站点副标题
