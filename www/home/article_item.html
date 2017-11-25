@@ -34,7 +34,7 @@
   </h1>
   <div class="entry-content">
     <p>{{article.content | safe }}</p>
-    <p class="lastUpdate">发表于 {{controller.date(article.date)}} &nbsp; 最后更新于 {{think.datetime(article.lastdate*1000, 'YYYY-MM-DD HH:mm:ss')}}</p>
+    <p class="lastUpdate">👨🏻‍💻 发表于 {{controller.date(article.date)}} &nbsp; 最后更新于 {{think.datetime(article.lastdate*1000, 'YYYY-MM-DD HH:mm:ss')}}</p>
     <p class="tags">Tags:
       {% for tags in article.tags|tags %}
       <a href="/tag/{{tags}}.html"># {{tags}}</a>
@@ -62,11 +62,15 @@
 
 <div class="pagination">
   {% if p %}
-  <p class="prev">上一篇: &nbsp;<a href="/article/{{p.routename}}.html">{{p.title}}</a></p>
+  <a href="/article/{{p.routename}}.html">
+    <p class="prev">上一篇: &nbsp;<span>{{p.title}}</span></p>
+  </a>
   {% endif %}
 
   {% if n %}
-  <p class="next">下一篇: &nbsp;<a href="/article/{{n.routename}}.html">{{n.title}}</a></p>
+  <a href="/article/{{n.routename}}.html">
+    <p class="next">下一篇: &nbsp;<span>{{n.title}}</span></p>
+  </a>
   {% endif %}
 </div>
 {% endif %}

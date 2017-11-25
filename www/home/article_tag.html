@@ -4,8 +4,10 @@
 {% endblock %}
 
 {% block content %}
-<h2 class="tagPageTitle">搜索标签:「 <strong>{{tagName}}</strong> 」 的文章结果有( {{articleListForTag.count}} )条 <a
-      href="javascript:history.go(-1)">取消</a></h2>
+<h2 class="tagPageTitle">搜索标签:「 <strong>{{tagName}}</strong> 」 的文章结果有( {{articleListForTag.count}} )条 <a href="javascript:history.go(-1)">取消</a></h2>
+{% if articleListForTag.totalPages == 0 %}
+<h2 class="emptyArticle">作者还没有撰写任何文章,或设定了文章不公开发布!</h2>
+{% endif %}
 {% for list in articleListForTag.data %}
 <article>
   <div class="meta">
@@ -31,7 +33,4 @@
   </div>
 </article>
 {% endfor %}
-{% if articleListForTag.totalPages == 0 %}
-<p class="emptyArticle">作者还没有撰写任何文章,或设定了文章不公开发布!</p>
-{% endif %}
 {% endblock %}

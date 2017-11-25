@@ -25,9 +25,9 @@ module.exports = class extends Base {
         return '<pre class="hljs"><code>' + md.utils.escapeHtml(str) + '</code></pre>';
       }
     });
-    md.use(require('markdown-it-for-inline'), 'url_new_win', 'link_open', function(tokens, idx) {
-      tokens[idx].attrPush([ 'target', '_blank' ]);
-    });
+    // md.use(require('markdown-it-for-inline'), 'url_new_win', 'link_open', function(tokens, idx) {
+    //   tokens[idx].attrPush([ 'target', '_blank' ]);
+    // });
     md.use(require('markdown-it-for-inline'), 'lazyload', 'image', function(tokens, idx) {
       tokens[idx].attrPush([ 'class', 'lazyload' ]);
       tokens[idx].attrPush([ 'data-src', tokens[idx].attrs[0][1] ]);
@@ -37,7 +37,10 @@ module.exports = class extends Base {
       tokens[idx].content = tokens[idx].content.replace('[===]', '');
     });
     md.use(require('markdown-it-imsize'), {autofill: true});
-    md.use(require('markdown-it-toc-and-anchor').default);
+    md.use(require('markdown-it-toc-and-anchor').default, {
+      tocLastLevel: 3,
+      anchorLinkSymbol: ''
+    });
 
     list[0].content = md.render(list[0].content);
     this.assign({
@@ -58,7 +61,8 @@ module.exports = class extends Base {
   }
   async pagination(action, order) {
     const data = await this.modelInstance.where({
-      id: action
+      id: action,
+      show: ['NOTIN', [0, 1, 2]]
     })
       .field('title,routename')
       .order(order)

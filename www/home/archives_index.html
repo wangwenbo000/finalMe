@@ -34,9 +34,12 @@
 </div>
 <ul class="taglist">
   {% for list in tagsList | sort(reverse=true, attribute='count') %}
-  <a href="/tag/{{list.name}}.html">
-    <li># {{list.name}}<span>{{list.count}}</span></li>
-  </a>
+    <li>
+      <a href="/tag/{{list.name}}.html">
+        # {{list.name}}
+        <span>{{list.count}}</span>
+      </a>
+    </li>
   {% endfor %}
 </ul>
 {% endblock %}
