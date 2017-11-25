@@ -38,8 +38,9 @@ module.exports = class extends Base {
     });
     md.use(require('markdown-it-imsize'), {autofill: true});
     md.use(require('markdown-it-toc-and-anchor').default, {
-      tocLastLevel: 3,
-      anchorLinkSymbol: ''
+      anchorLinkSymbol: '',
+      tocFirstLevel: 2,
+      anchorLinkSpace: true
     });
 
     list[0].content = md.render(list[0].content);

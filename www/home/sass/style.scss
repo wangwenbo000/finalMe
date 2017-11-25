@@ -14,6 +14,13 @@
 }
 h1, h2, h3, h4, h5, h6, p {
   margin: 0;
+  color: #444;
+}
+h3{
+  font-size: 1.3em;
+}
+h4{
+  font-size: 1.1em;
 }
 
 body {
@@ -228,7 +235,6 @@ article {
     padding-bottom: 10px;
     display: flex;
     align-items: center;
-    width: 100%;
     color: #565656;
     a{
       color: #565656;
@@ -266,17 +272,17 @@ article {
       float: right;
       min-width: 120px;
       max-width: 220px;
-      margin: .7em .5em .5em 1.5em;
+      margin: 0 .5em .5em 1.5em;
       border: $solid-border;
       font-size: $global-font-size;
       background-color: #fff;
       list-style: none;
-      padding: 10px 10px 10px 0;
+      padding: 0 0 10px 0;
       font-size: 14px;
       position: relative;
       li{
         ul{
-          padding-left: 26px;
+          padding: 0 10px 0 26px;
           list-style: disc;
           ul{
             list-style: circle;
@@ -284,16 +290,14 @@ article {
           }
         }
       }
-      &:after{
+      &:before{
         content: '文章目录';
-        position: absolute;
-        top: -39px;
-        border: $solid-border;
+        border-bottom: $solid-border;
+        width: 100%;
         display: block;
-        left: -1px;
-        right: -1px;
-        padding: 6px;
-        background: #fff;
+        padding: 4px 0;
+        text-indent: 5px;
+        // margin: 0 5px;
         font-weight: bold;
       }
     }
@@ -329,15 +333,24 @@ article {
     }
     .readmore {
       margin-top: 18px;
+
       a{
+        border: 1px solid $blue-link-color;
+        padding: 2px 8px;
+        border-radius: 30px;
+        font-size: 12px;
         color: $blue-link-color;
+        &:hover{
+          background: $blue-link-color;
+          color:#fff;
+        }
       }
     }
     .lastUpdate {
       background-color: #FFFCE8;
       margin: 16px auto 0 auto;
-      text-indent: 16px;
-      padding: 10px 0;
+      // text-indent: 16px;
+      padding: 10px 20px;
       border-left: 6px solid #fbd757;
       border-right: 1px solid #fbd757;
       border-top: 1px solid #fbd757;
@@ -479,23 +492,21 @@ footer {
   font-size: 12px;
   color: #ccc;
   a{
-    padding: 30px 20px;
+    padding: 20px;
     width: 100%;
+    color: $blue-link-color;
+    span{
+      display: block;
+      font-size: 24px;
+      font-weight: bold;
+      margin-top: 10px;
+    }
     &:hover{
       background: #02f;
       color: #fff;
     }
     &:last-child{
       border-left: 1px solid #02f;
-    }
-  }
-  .next,
-  .prev{
-    span{
-      display: block;
-      font-size: 24px;
-      font-weight: bold;
-      margin-top: 10px;
     }
   }
   .archive {
@@ -533,14 +544,29 @@ footer {
         margin-right: 10px;
       }
     }
+    .title{
+      width: 100%;
+    }
+    .entry-content{
+      .readmore{
+        text-align: center;
+        a{
+          border: 1px solid #02f;
+          padding: 2px 10px;
+          border-radius: 20px;
+          font-size: 14px;
+        }
+      }
+    }
+    
     .entry-content{
       .markdownIt-TOC{
         width: 100%;
         float: none;
         min-width: auto;
         max-width: 100%;
-        padding: 10px 0;
-        margin: 3.7em 0 0 0;
+        padding: 0;
+        margin: 0;
       }
     }
   }
