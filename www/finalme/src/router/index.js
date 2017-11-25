@@ -4,13 +4,19 @@ import Login from '@/components/Login'
 import Index from '@/components/Admin/Index'
 import DashBoard from '@/components/Admin/DashBoard'
 import Article from '@/components/Admin/Article'
+import NotFound from '@/components/Admin/404'
 
 Vue.use(Router)
 
 export default new Router({
+  mode: 'history',
   routes: [
     {
-      path: '/',
+      path: '*',
+      component: NotFound
+    },
+    {
+      path: '/admin',
       name: 'Login',
       component: Login
     },

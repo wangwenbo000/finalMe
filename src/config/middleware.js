@@ -21,7 +21,10 @@ module.exports = [
     handle: 'trace',
     enable: !think.isCli,
     options: {
-      debug: isDev
+      debug: isDev,
+      templates: {
+        404: path.join(__dirname, '../../view/admin_index.html')
+      }
     }
   },
   {
