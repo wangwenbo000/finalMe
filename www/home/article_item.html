@@ -14,7 +14,9 @@
 </script>
 <article>
   <div class="meta">
-    <time>{{controller.date(article.date)}}</time>
+    <time datetime="{{think.datetime(article.date,'YYYY-MM-DD HH:mm:ss')}}" pubdate>
+      {{controller.date(article.date)}}
+    </time>
     <div class="comment">
       <a href="/article/{{article.routename}}.html#disqus_thread">{{article.comment}}&nbsp;Comments</a>
     </div>
@@ -59,12 +61,12 @@
 </div>
 
 <div class="pagination">
-  {% if n %}
-  <p class="next">下一篇: &nbsp;<a href="/article/{{n.routename}}.html">{{n.title}}</a></p>
-  {% endif %}
-
   {% if p %}
   <p class="prev">上一篇: &nbsp;<a href="/article/{{p.routename}}.html">{{p.title}}</a></p>
+  {% endif %}
+
+  {% if n %}
+  <p class="next">下一篇: &nbsp;<a href="/article/{{n.routename}}.html">{{n.title}}</a></p>
   {% endif %}
 </div>
 {% endif %}

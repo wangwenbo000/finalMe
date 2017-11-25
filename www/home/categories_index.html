@@ -22,7 +22,7 @@
     {% for post in list.list %}
     <li><a href="/article/{{post.routename}}">{{post.title}}</a>
       &nbsp;
-      <time><i>( {{think.datetime(list.date, 'MM月DD, YYYY')}} )</i></time>
+      <time datetime="{{think.datetime(list.date,'YYYY-MM-DD HH:mm:ss')}}" pubdate><i>( {{think.datetime(list.date, 'MM月DD, YYYY')}} )</i></time>
     </li>
     {% endfor %}
   </ul>

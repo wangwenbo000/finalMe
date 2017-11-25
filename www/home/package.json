@@ -12,6 +12,7 @@
     "compass-mixins": "^0.12.10",
     "gulp": "^3.9.1",
     "gulp-html-inline": "^3.0.0",
+    "gulp-htmlmin": "^3.0.0",
     "gulp-minify-css": "^1.2.4",
     "gulp-minify-html": "^1.0.6",
     "gulp-rename": "^1.2.2",

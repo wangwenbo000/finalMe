@@ -3,7 +3,9 @@
 {% for list in articleList.data %}
 <article>
   <div class="meta">
-    <time>{{controller.date(list.date)}}</time>
+    <time datetime="{{think.datetime(list.date,'YYYY-MM-DD HH:mm:ss')}}" pubdate>
+      {{controller.date(list.date)}}
+    </time>
     <div class="comment">
       <a href="/article/{{list.routename}}.html#disqus_thread">{{list.comment}}&nbsp;Comments</a>
     </div>

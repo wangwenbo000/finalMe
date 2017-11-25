@@ -2,8 +2,7 @@ var gulp = require('gulp');
 var sass = require('gulp-sass');
 var rename = require('gulp-rename');
 var minifyCSS = require('gulp-minify-css');
-var minifyhtml = require('gulp-minify-html');
-var htmlInline = require('gulp-html-inline');
+var htmlmin = require('gulp-htmlmin');
 // var replace = require('gulp-replace');
 // var md5 = require('md5');
 
@@ -17,8 +16,30 @@ gulp.task('sass', function() {
 });
 gulp.task('template', function() {
   return gulp.src('./*.html')
-    .pipe(minifyhtml())
-    .pipe(htmlInline({ minifyCss: false, minifyJs: true }))
+    .pipe(htmlmin({
+      ignoreCustomFragments: [ /{%[\s\S]*?%}/, /<%[\s\S]*?%>/, /<\?[\s\S]*?\?>/ ],
+      collapseBooleanAttributes: true,
+      collapseInlineTagWhitespace: true,
+      collapseWhitespace: true,
+      decodeEntities: true,
+      html5: true,
+      minifyCSS: true,
+      minifyJS: true,
+      processConditionalComments: true,
+      processScripts: ['text/html'],
+      removeAttributeQuotes: true,
+      removeComments: true,
+      removeEmptyAttributes: true,
+      removeOptionalTags: true,
+      removeRedundantAttributes: true,
+      removeScriptTypeAttributes: true,
+      removeStyleLinkTypeAttributes: true,
+      removeTagWhitespace: true,
+      sortAttributes: true,
+      sortClassName: true,
+      trimCustomFragments: true,
+      useShortDoctype: true
+    }))
     // .pipe(replace('CHANGE_VALUE_NO', 'WWB_' + md5(new Date().getTime())))
     .pipe(gulp.dest('../../view/'));
 });

@@ -489,7 +489,7 @@ footer {
 }
 
 .otheread {
-  border-bottom: 1px solid #EFEFEF;
+  // border-bottom: 1px solid #EFEFEF;
   padding: 16px 0;
   h3 {
     font-size: 22px;
@@ -513,13 +513,35 @@ footer {
 }
 
 .pagination {
-  border-bottom: 1px solid #EFEFEF;
+  border: 1px solid #EFEFEF;
   overflow: auto;
-  padding: 26px 0;
+  display: inline-flex;
+  align-items: center;
   zoom: 1;
-  font-size: 14px;
+  width: 99.8%;
+  font-size: 12px;
+  background: #fdfdfd;
+  color: #ccc;
+  .next,.prev{
+    width: 100%;
+    padding: 30px 20px;
+    a{
+      display: block;
+      font-size: 24px;
+      font-weight: bold;
+      margin-top: 12px;
+      &:hover{
+        color: #fff;
+      }
+    }
+    &:hover{
+      background: #02f;
+      color: #fff;
+    }
+  }
   .next {
     float: right;
+    border-left: 1px solid #EFEFEF;
   }
   .prev {
     float: left;
