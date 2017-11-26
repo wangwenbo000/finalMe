@@ -187,7 +187,7 @@ header {
     line-height: 20px;
     background-color: #FFFCE8;
     border-radius: 20px;
-    border: $solid-border-yellow;
+    border: 1px solid $blue-link-color;
     @include transition-property(background-color);
     @include transition-duration(.4s);
     &:hover{

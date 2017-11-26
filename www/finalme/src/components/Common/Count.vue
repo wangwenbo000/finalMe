@@ -7,11 +7,11 @@
       </li>
       <li>
         <span>Drafts</span>
-        <h2>{{count.cateTotal}}</h2>
+        <h2>{{count.draftsTotal}}</h2>
       </li>
       <li>
         <span>Cates</span>
-        <h2>{{count.draftsTotal}}</h2>
+        <h2>{{count.cateTotal}}</h2>
       </li>
     </ul>
     <ul class="left">
