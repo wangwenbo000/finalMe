@@ -10,7 +10,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="full-screen" content="yes"/>
   <meta name="apple-mobile-web-app-capable" content="yes" />
-  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"> 
+  <meta name="apple-mobile-web-app-status-bar-style" content="default"> 
   <link rel="apple-touch-icon" sizes="57x57" href="/static/favicon.ico/apple-icon-57x57.png">
   <link rel="apple-touch-icon" sizes="60x60" href="/static/favicon.ico/apple-icon-60x60.png">
   <link rel="apple-touch-icon" sizes="72x72" href="/static/favicon.ico/apple-icon-72x72.png">
@@ -30,8 +30,6 @@
   <meta name="msapplication-TileColor" content="#ffffff">
   <meta name="msapplication-TileImage" content="/static/favicon.ico/ms-icon-144x144.png">
   <meta name="theme-color" content="#fff21e">
-
-
   <title>{% block title %}{{config.title}}{% endblock %}</title>
   <link rel="alternate" href="/rss.html"  type="application/atom+xml" title="{{config.title}}">
   <link href="/static/css/home_style.css" rel="stylesheet" type="text/css" /> 
@@ -78,5 +76,18 @@
     <script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1256496453'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s95.cnzz.com/z_stat.php%3Fid%3D1256496453' type='text/javascript'%3E%3C/script%3E"));</script>
   </p>
 </footer>
+<script>  
+  if(('standalone' in window.navigator)&&window.navigator.standalone){  
+          var noddy,remotes=false;  
+          document.addEventListener('click',function(event){  
+                  noddy=event.target;  
+                  while(noddy.nodeName!=='A'&&noddy.nodeName!=='HTML') noddy=noddy.parentNode;  
+                  if('href' in noddy&&noddy.href.indexOf('http')!==-1&&(noddy.href.indexOf(document.location.host)!==-1||remotes)){  
+                          event.preventDefault();  
+                          document.location.href=noddy.href;  
+                  }  
+          },false);  
+  }  
+  </script> 
 </body>
 </html>
