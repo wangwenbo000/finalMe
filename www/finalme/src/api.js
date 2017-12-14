@@ -11,7 +11,6 @@ axios.interceptors.request.use(config => {
 }, err => {
   return Promise.reject(err)
 })
-
 // axios response拦截器
 axios.interceptors.response.use(response => {
   return response
@@ -32,7 +31,6 @@ axios.interceptors.response.use(response => {
   }
   return Promise.reject(error.response.data)
 })
-
 const api = {
   login: `${apiBaseUrl}login/login`,
   get: `${apiBaseUrl}list/get`,

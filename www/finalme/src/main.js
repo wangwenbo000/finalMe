@@ -22,7 +22,7 @@ Vue.directive('drag', {
     // 一些逻辑……
     const dragEl = el.querySelector(binding.value)
     dragEl.onmousedown = e => {
-      var oEvent = e || event
+      const oEvent = e || event
       var disX = oEvent.clientX - el.offsetLeft
       var disY = oEvent.clientY - el.offsetTop
       document.onmousemove = function (ev) {
@@ -48,5 +48,5 @@ new Vue({
   router,
   store,
   template: '<App/>',
-  components: { App }
+  components: {App}
 })

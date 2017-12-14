@@ -10,7 +10,7 @@ module.exports = class extends Base {
     if (think.isEmpty(loginInfo)) {
       this.ctx.throw(401, 'access_denied');
     }
-    const success = passwordHash.checkPassword(passWord, loginInfo.password)
+    const success = passwordHash.checkPassword(passWord, loginInfo.password);
     if (loginInfo.username === userName && success) {
       await this.session('userInfo', {username: userName, password: passWord});
       return this.success({

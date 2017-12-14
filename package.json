@@ -10,6 +10,8 @@
   },
   "dependencies": {
     "axios": "^0.16.2",
+    "eslint-config-standard": "^10.2.1",
+    "eslint-plugin-html": "^4.0.1",
     "highlight.js": "^9.12.0",
     "markdown-it": "^8.4.0",
     "markdown-it-for-inline": "^0.1.1",
