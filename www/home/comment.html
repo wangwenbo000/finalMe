@@ -9,8 +9,8 @@
   var st = null;
   var disqus_config = function() {
     this.page.shortname = 'wangwenbo';
-    this.page.identifier = '<%-article.id%>';
-    this.page.title = '<%-article.title%>';
+    this.page.identifier = '{{-article.id}}';
+    this.page.title = '{{-article.title}}';
   };
   window.addEventListener('scroll', scrollToShow, false);
   scrollToShow();
