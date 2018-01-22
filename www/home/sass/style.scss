@@ -294,7 +294,7 @@ article {
       margin: 0 .5em .5em 1.5em;
       // border: $solid-border;
       font-size: $global-font-size;
-      border: 1px solid #e4f2ff;
+      border: 1px solid #d8ecff;
       background-color: #f9fdff;
       border-radius: 3px;
       list-style: none;
@@ -313,7 +313,7 @@ article {
       }
       &:before{
         content: '文章目录';
-        border-bottom: $solid-border;
+        border-bottom: 1px solid #d8ecff;
         width: 100%;
         display: block;
         padding: 4px 0;
