@@ -34,7 +34,13 @@ h3{
 h4{
   font-size: 1.1em;
 }
-
+hr{
+  height:2px;
+  border:none;
+  border-top:2px solid #efefef;
+  margin: 32px auto;
+  overflow:auto;
+}
 body {
   margin: 0;
   background: $global-bg-color;
@@ -107,6 +113,7 @@ header {
       color: $global-grey-color;
       font-size: 12px;
       text-indent: 10px;
+      line-height: 22px;
     }
   }
   .header_right{
@@ -494,7 +501,23 @@ footer {
     color: #A9A9A9;
   }
 }
-
+.scroll-to-top{
+  position: fixed;
+  display: block;
+  width: 30px;
+  height: 30px;
+  background: #FFFCE8;
+  text-align: center;
+  line-height: 30px;
+  color: #0057ff;
+  font-weight: bold;
+  font-size: 12px;
+  left: 50%;
+  bottom: 90px;
+  margin-left: 490px;
+  border: 1px solid #0057ff;
+  border-radius: 3px;
+}
 .pagination {
   border: 1px solid #02f;
   overflow: auto;
@@ -649,7 +672,7 @@ Orginal Style from ethanschoonover.com/solarized (c) Jeremy Hull <sourdrums@gmai
    color: #657b83;
  }
 
-// .hljs-comment,
+ .hljs-comment,
  .hljs-quote {
    color: #93a1a1;
  }
