@@ -50,6 +50,7 @@ module.exports = class extends Base {
     if (think.isEmpty(data.id)) {
       await this.model('article').add(dataJSON);
     } else {
+      delete dataJSON.date;
       await this.model('article').where({id: data.id}).update(dataJSON);
     }
 
