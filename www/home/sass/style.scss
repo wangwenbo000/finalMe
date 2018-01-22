@@ -292,9 +292,11 @@ article {
       min-width: 120px;
       max-width: 220px;
       margin: 0 .5em .5em 1.5em;
-      border: $solid-border;
+      // border: $solid-border;
       font-size: $global-font-size;
-      background-color: #fff;
+      border: 1px solid #e4f2ff;
+      background-color: #f9fdff;
+      border-radius: 3px;
       list-style: none;
       padding: 0 0 10px 0;
       font-size: 14px;
