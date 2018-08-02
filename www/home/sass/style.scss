@@ -431,6 +431,10 @@ article {
     margin-bottom: 20px;
     border-bottom: $solid-border;
   }
+  #effect{
+    display: flex;
+    justify-content: center;
+  }
 }
 
 .archives {
