@@ -12,12 +12,14 @@
 <script>
   console.log('aa')
   var text = new Blotter.Text("WANGWENBO.ME", {
-    family : "'EB Garamond', serif",
+    family : "'-apple-system','Open Sans',HelveticaNeue-Light,'Helvetica Neue Light','Helvetica Neue',Helvetica,Arial,sans-serif",
     size : 100,
-    fill : "#02f"
+    fill : "#02f",
+    paddingLeft : 40,
+    paddingRight : 40
   });
   var material = new Blotter.ChannelSplitMaterial();
-  material.uniforms.uOffset.value = 0.084
+  material.uniforms.uOffset.value = 0.14
   material.uniforms.uRotation.value = 312
   var blotter = new Blotter(material, {
     texts : text
@@ -41,7 +43,7 @@
     {% for post in list.list %}
     <li><a href="/article/{{post.routename}}">{{post.title}}</a>
       &nbsp;
-      <time datetime="{{think.datetime(list.date,'YYYY-MM-DD HH:mm:ss')}}" pubdate><i>( {{think.datetime(list.date, 'MM月DD, YYYY')}} )</i></time>
+      <time datetime="{{think.datetime(post.date*1000,'YYYY-MM-DD HH:mm:ss')}}" pubdate><i>( {{think.datetime(post.date*1000, 'MM月DD, YYYY')}} )</i></time>
     </li>
     {% endfor %}
   </ul>

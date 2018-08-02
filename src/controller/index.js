@@ -7,6 +7,7 @@ module.exports = class extends Base {
   }
   async indexAction() {
     var list = await this.model('category').getlist();
+    console.log(list);
     this.assign('count', list.length);
     this.assign('cate_list', list);
     const tags = await this.modelInstance.where({tags: ['!=', ''], show: ['NOTIN', [0, 1, 2]]}).field('tags').select();

@@ -432,6 +432,7 @@ article {
     border-bottom: $solid-border;
   }
   #effect{
+    height: 150px;
     display: flex;
     justify-content: center;
   }
@@ -525,6 +526,25 @@ footer {
   margin-left: 490px;
   border: 1px solid #0057ff;
   border-radius: 3px;
+}
+.pagination-index{
+  width: 100%;
+  line-height: 20px;
+  position: relative;
+  border-bottom: 1px dotted  #EFEFEF;
+  padding: 20px 0;
+  overflow: hidden;
+  .next{
+    float: right;
+  }
+  .prev{
+    float: left;
+  }
+  .archive{
+    text-align: center;
+    width: 80px;
+    margin: auto
+  }
 }
 .pagination {
   border: 1px solid #02f;
