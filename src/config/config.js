@@ -23,7 +23,7 @@ module.exports = {
   // 每页显示多少数据
   pagesize: 2,
   // 后台每页显示多少数据
-  adminPageSize: 10,
+  adminPageSize: 20,
   // 站点域名
   domain: 'https://wangwenbo.me',
   // rss配置

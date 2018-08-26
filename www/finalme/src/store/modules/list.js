@@ -1,7 +1,7 @@
 import axios from 'axios'
 import api from '../../api'
 const state = {
-  list: {},
+  list: [],
   search: []
 }
 const mutations = {

@@ -1,3 +1,4 @@
+$darkBlue: #273544;
 // 翻页
 .zpagenav{
   display: flex;
@@ -53,15 +54,15 @@
   z-index: 2;
   color: #fff;
   cursor: default;
-  background-color: #000;
-  border-color: #000;
+  background-color: $darkBlue;
+  border-color: $darkBlue;
 }
 
 .page-item.disabled .page-link, .page-item.disabled .page-link:focus, .page-item.disabled .page-link:hover {
   color: #818a91;
   cursor: not-allowed;
   background-color: #fff;
-  border-color: #000;
+  border-color: $darkBlue;
 }
 
 .page-link {
@@ -70,16 +71,16 @@
   padding: .5rem .75rem;
   margin-left: -1px;
   line-height: 1.5;
-  color: #000;
+  color: $darkBlue;
   text-decoration: none;
   background-color: #fff;
-  border: 1px solid #000;
+  border: 1px solid $darkBlue;
 }
 
 .page-link:focus, .page-link:hover {
-  color: #000;
+  color: $darkBlue;
   background-color: #eceeef;
-  border-color: #000;
+  border-color: $darkBlue;
 }
 
 .pagination-lg .page-link {

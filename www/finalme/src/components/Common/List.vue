@@ -2,7 +2,7 @@
 <div class="List">
   <table>
     <tr>
-      <td style="position:relative" colspan="2">
+      <td style="position:relative" colspan="3">
         <input type="text" placeholder="keywords search" name="search" autocomplete="off" @input="searchInput" v-model="keywords">
         <div class="SearchSuggest" v-show="showSuggest">
           <ul>
@@ -44,12 +44,13 @@
     </tr> -->
     <tr>
       <th>Title | route | tags</th>
+      <th>category</th>
       <th width="10">Comment</th>
-      <th width="180">Date</th>
-      <th width="126">Action</th>
+      <th width="220">Date</th>
+      <th width="86">Action</th>
     </tr>
     <tr v-show="actMsg">
-      <td colspan="4" align="center" style="background:#44b549;color:#fff;">
+      <td colspan="5" align="center" style="background:#44b549;color:#fff;">
         数据删除成功
       </td>
     </tr>
@@ -62,19 +63,24 @@
       <router-link tag="td" :to="{name:'Article', query:{action:'edit',id:item.id}}">
         <span v-show="!item.show" class="top"><i class="iconfont">&#xe71e;</i></span>
         <strong>{{item.title}}</strong>
-        <span class="routename"><i class="iconfont">&#xe616;</i> {{item.routename}}</span>
-        <span class="tagname"><i class="iconfont">&#xe719;</i> {{item.tags.split('|').length}}</span>
+        <span class="routename"><i class="iconfont">&#xe616;</i>{{item.routename}}</span><br>
+        <!-- <span class="tagname"><i class="iconfont">&#xe719;</i> {{item.tags.split('|').length}}</span> -->
       </router-link>
+      <td class="tcenter">
+        <strong>
+          {{item.hasOwnProperty('cateName')?item.cateName.name:'未分类'}}
+        </strong>
+      </td>
       <td class="tcenter">{{item.comment}}</td>
-      <td class="tcenter">{{$moment.unix(item.date).format('llll')}}</td>
+      <td class="tcenter">{{$moment.unix(item.date).format('LLLL')}}</td>
       <td class="tcenter">
         <router-link tag="button" :to="{name:'Article', query:{action:'edit',id:item.id}}">
           <i class="iconfont">&#xe6b9;</i>
-          编辑
+          <!-- 编辑 -->
         </router-link>
         <button @click="showDelBoxFn(item.id)" class="cancelBtn">
           <i class="iconfont">&#xe6bb;</i>
-          删除
+          <!-- 删除 -->
         </button>
         <!-- <button @click="showTopBoxFn(item.id)" v-show="item.show">
           <i class="iconfont">&#xe71e;</i>
@@ -85,7 +91,7 @@
       </td>
     </tr>
     <tr>
-      <td colspan="4">
+      <td colspan="5">
         <zpagenav :page="dataList.currentPage"
           :page-size="dataList.pagesize"
           :total="dataList.count"
@@ -292,6 +298,12 @@ input[name=search]{
     border-right: 1px solid #2b2b2b;
     padding-right: 3px;
   }
+}
+.tagname{
+  margin-left: 0;
+  margin-right: 10px;
+  margin-top: 10px;
+  // display: block
 }
 .top{
   color:#ff0000;

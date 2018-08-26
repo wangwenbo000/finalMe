@@ -32,7 +32,7 @@
         <span>User</span>
       </li>
       <li class="cutLine"></li>
-      <li>
+      <li @click="openAbout">
         <i class="iconfont">&#xe726;</i>
         <span>About</span>
       </li>
@@ -90,6 +90,10 @@ export default {
     },
     openUser () {
       this.$store.commit('userToggle', true)
+      this.close()
+    },
+    openAbout () {
+      window.open('https://github.com/wangwenbo000/finalMe')
       this.close()
     }
   }

@@ -79,6 +79,9 @@ $iconSize: 14px;
       text-align: center;
       display: flex;
       cursor: pointer;
+      &:hover{
+        background: #ccc;
+      }
       .icon{
         width: $navHeight;
         font-size: $iconSize;

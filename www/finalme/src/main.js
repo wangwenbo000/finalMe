@@ -13,6 +13,7 @@ import Message from './components/Common/message/index'
 
 sync(store, router)
 Vue.http = Vue.prototype.$http = axios
+moment.locale('zh-cn')
 Vue.moment = Vue.prototype.$moment = moment
 Vue.use(zPageNav)
 Vue.use(VueCodeMirror)

@@ -11,13 +11,13 @@
            v-model="article.title">
     <div class="router">
       <input type="text" class="routeInput" placeholder="Router Name" v-model="article.routename">
-      <button @click="tranRoute">Translate</button>
+      <button @click="tranRoute"> <i class="iconfont">&#xe616;</i></button>
     </div>
     <div class="tag">
       <select v-model="article.cate">
         <option :value="-1" selected>暂无分类</option>
         <option :value="cate.id"
-                v-for="cate in categoryList">
+                v-for="cate in list">
                 {{cate.name}}
         </option>
       </select>
@@ -72,14 +72,13 @@
 <script>
 import { mavonEditor } from 'mavon-editor'
 import 'mavon-editor/dist/css/index.css'
-import { mapActions } from 'vuex'
+import { mapState, mapActions } from 'vuex'
 export default {
   name: 'Index',
   data () {
     return {
       code: '',
       tagText: '',
-      categoryList: [],
       toc: '',
       getNowFormatDate: '',
       article: {
@@ -125,6 +124,9 @@ export default {
     }
   },
   computed: {
+    ...mapState({
+      list: state => state.Cate.list
+    }),
     editor () {
       return this.$refs.myEditor.editor
     }
@@ -183,6 +185,7 @@ export default {
     width: 100%;
     border: none;
     border-bottom: 1px solid #e0e0e0;
+    padding-left: 0;
   }
   input[class=title]{
     font-size: 20px;
@@ -192,9 +195,8 @@ export default {
     display: flex;
     margin-bottom: 6px;
     button{
-      width: 100px;
-      background: #000;
-      color: #fff;
+      padding: 0 20px;
+      border-radius: 15px
     }
   }
   .tag{
