@@ -20,7 +20,7 @@
         <h2>{{count.nodeV}}</h2>
       </li>
       <li>
-        <span>Thinkjs Vesion</span>
+        <span>Think Vesion</span>
         <h2>{{count.thinkV}}</h2>
       </li>
       <li>
