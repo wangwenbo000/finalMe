@@ -41,6 +41,9 @@ const api = {
   del: `${apiBaseUrl}list/del`,
   tranRoute: `${apiBaseUrl}article/tranRoute`,
   getCate: `${apiBaseUrl}category/getCate`,
+  addCate: `${apiBaseUrl}category/addCate`,
+  updateCate: `${apiBaseUrl}category/updateCate`,
+  delCate: `${apiBaseUrl}category/delCate`,
   postArticle: `${apiBaseUrl}article/postArticle`,
   updateArticle: `${apiBaseUrl}article/updateArticle`
 }

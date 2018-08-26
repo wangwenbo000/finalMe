@@ -1,3 +1,6 @@
+
+$darkBlue: #324456;
+
 #app {
   font-family: 'Roboto', 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -55,12 +58,15 @@ button{
 .redBtn{
   background: #ff0000;
   color:#fff;
+  &:hover{
+    background: lighten($color: #ff0000, $amount: 20);
+  }
 }
 .blackBtn{
-  background: #000;
+  background: #324456;
   color: #fff;
   &:hover{
-    background: lighten($color: #000000, $amount: 20);
+    background: lighten($color: #324456, $amount: 20);
   }
 }
 .greenBtn{
@@ -98,6 +104,7 @@ button{
   color: #344f69;
   background: #d4dbe2;
   min-width: 30px;
+  cursor: pointer;
   &:hover{
     background: #ddd;
   }
@@ -105,8 +112,15 @@ button{
     background: #bbb;
   }
 }
+.cancelBtn{
+  background: rgb(255, 232, 232);
+  color: #ff0000;
+  &:hover{
+    background: lighten(#ff0000,40%);
+  }
+}
 // toc
-.table-of-contents{
+.table-of-contents {
   list-style: square;
   padding: 10px;
   min-width: 80px;
@@ -118,7 +132,7 @@ button{
     }
   }
 }
-select{
+select {
   border: 1px solid #000;
   border-radius: 0;
   margin: 0;
@@ -140,7 +154,7 @@ ul{
 
 // table
 table, th, td{
-  border: 1px solid black;
+  border: 1px solid #324456;
 }
 table{
   border-collapse:collapse;
@@ -151,18 +165,18 @@ table{
     padding:6px 10px;
   }
   th{
-    background-color:#000;
+    background-color:#324456;
     color:white;
   }
   tr[class=data]{
     cursor: pointer;
-    transition: color .2s;
+    // transition: all .2s;
     transition-timing-function:cubic-bezier(.99,.01,.77,1);
     &:nth-child(odd){
       background: #e7e7e7;
     }
     &:hover{
-      background: #2b2b2b;
+      background: $darkBlue;
       color: #faed7c;
     }
   }
@@ -190,6 +204,9 @@ table{
   width: 22px;
   height: 22px;
 }
+.v-note-wrapper .v-note-panel{
+  border:1px solid #000;
+}
 @keyframes loading
 {
   from {
@@ -199,3 +216,4 @@ table{
     transform:rotate(360deg);
   }
 }
+

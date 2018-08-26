@@ -5,7 +5,7 @@
   <Category></Category>
   <Src></Src>
   <router-view></router-view>
-  <FooterBar></FooterBar>
+  <!-- <FooterBar></FooterBar> -->
   <User></User>
 </div>
 </template>

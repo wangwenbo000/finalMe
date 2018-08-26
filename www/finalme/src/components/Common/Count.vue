@@ -131,7 +131,7 @@ export default {
 </script>
 <style lang="scss" scoped>
 .Count{
-  width: 1200px;
+  width: 960px;
   margin: 0 auto;
   display: flex;
   .left{
@@ -141,15 +141,16 @@ export default {
       padding: 10px 10px 8px 10px;
       background: #efefef;
       height: 52px;
-      border: 2px solid #000;
+      border: 1px solid #000;
       margin-left: -2px;
       &:first-child{
         margin: 0;
       }
       h2{
-        font-size: 38px;
+        font-size: 32px;
         margin: 0;
         padding: 0;
+        padding: 6px 0;
         text-align: center;
         font-weight: normal;
       }

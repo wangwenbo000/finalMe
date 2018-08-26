@@ -11,7 +11,7 @@ export default {
 </script>
 <style lang="scss" scoped>
 .footer{
-  width: 1200px;
+  width: 960px;
   margin: 0 auto;
   display: flex;
   justify-content: space-between;

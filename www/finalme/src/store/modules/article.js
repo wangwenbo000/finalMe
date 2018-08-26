@@ -17,13 +17,13 @@ const actions = {
     })
     return trans.data.data
   },
-  async getCateList ({commit}, key) {
-    const list = await axios({
-      url: api.getCate,
-      method: 'POST'
-    })
-    return list.data.data
-  },
+  // async getCateList ({commit}, key) {
+  //   const list = await axios({
+  //     url: api.getCate,
+  //     method: 'POST'
+  //   })
+  //   return list.data.data
+  // },
   async postArticle ({commit}, data) {
     await axios({
       url: api.postArticle,

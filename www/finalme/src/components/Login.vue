@@ -1,5 +1,5 @@
 <template>
-  <div class="login" :style="{'background-image':'url('+ bg +') '}">
+  <div class="login">
     <div class="logo"><i class="iconfont">&#xe635;</i></div>
     <div class="win">
       <div class="title">
@@ -34,7 +34,7 @@
       }
     },
     async created () {
-      await this.get500px()
+      // await this.get500px()
     },
     watch: {
       '$route.query.err': function (o) {
@@ -84,8 +84,9 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    // background: no-repeat top;
+    background: url('../assets/img/bg.jpg') no-repeat center;
     background-size: cover;
-    background: no-repeat top;
     .logo {
       font-size: 52px;
       margin-bottom: 20px;

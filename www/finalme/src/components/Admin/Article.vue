@@ -44,30 +44,10 @@
       </ul>
     </div>
     <div class="markdown">
-      <div class="toc" >
-        <div class="toc-title">@TOC |
-          <a href="javascript:;" @click="clearToc" v-if="article.content===''">
-            <i class="iconfont">&#xe6bb;</i>
-          </a>
-        </div>
-        <div v-html="toc"></div>
-      </div>
-      <div class="left">
-        <codemirror ref="myEditor"
-              :code="code"
-              :options="editorOptions"
-              @ready="onEditorReady"
-              @focus="onEditorFocus"
-              @change="onEditorCodeChange">
-        </codemirror>
-      </div>
-      <div class="right">
-        <vue-markdown :source="article.content"
-                      @rendered="renderHtml"
-                      @toc-rendered="renderToc"
-                      :watches="['show','html','breaks','linkify','emoji','typographer','toc']"
-                      :toc='true'></vue-markdown>
-      </div>
+      <mavon-editor style="height:700px;width:100%;z-index:1;"
+                    :boxShadow="false"
+                    :value="code"
+                    @change="onEditorCodeChange"></mavon-editor>
     </div>
   </div>
   <div class="btnBar">
@@ -76,12 +56,12 @@
       <li><strong>Status: </strong> new</li>
     </ul>
     <ul>
-      <li class="cancel">
+      <!-- <li class="cancel">
         <i class="iconfont">&#xe6bc;</i>
       </li>
       <li class="draft">
         <i class="iconfont">&#xe6b6;</i>
-      </li>
+      </li> -->
       <li class="post" @click="postAction">
         <i class="iconfont">&#xe6a0;</i>
       </li>
@@ -90,65 +70,14 @@
 </div>
 </template>
 <script>
-require('codemirror/addon/dialog/dialog.css')
-require('codemirror/addon/fold/foldgutter.css')
-// require active-line.js
-require('codemirror/addon/selection/active-line.js')
-// styleSelectedText
-require('codemirror/addon/selection/mark-selection.js')
-require('codemirror/addon/search/searchcursor.js')
-// highlightSelectionMatches
-require('codemirror/addon/scroll/annotatescrollbar.js')
-require('codemirror/addon/search/matchesonscrollbar.js')
-require('codemirror/addon/search/searchcursor.js')
-require('codemirror/addon/search/match-highlighter.js')
-// keyMap
-require('codemirror/mode/clike/clike.js')
-require('codemirror/addon/edit/matchbrackets.js')
-require('codemirror/addon/comment/comment.js')
-require('codemirror/addon/dialog/dialog.js')
-
-require('codemirror/addon/search/searchcursor.js')
-require('codemirror/addon/search/search.js')
-require('codemirror/keymap/sublime.js')
-// foldGutter
-
-require('codemirror/addon/fold/brace-fold.js')
-require('codemirror/addon/fold/comment-fold.js')
-require('codemirror/addon/fold/foldcode.js')
-require('codemirror/addon/fold/foldgutter.js')
-require('codemirror/addon/fold/indent-fold.js')
-require('codemirror/addon/fold/markdown-fold.js')
-require('codemirror/addon/fold/xml-fold.js')
-import VueMarkdown from 'vue-markdown'
+import { mavonEditor } from 'mavon-editor'
+import 'mavon-editor/dist/css/index.css'
 import { mapActions } from 'vuex'
 export default {
   name: 'Index',
   data () {
     return {
       code: '',
-      editorOptions: {
-        // codemirror options
-        tabSize: 4,
-        mode: 'text/x-markdown',
-        theme: 'material',
-        lineWrapping: true,
-        lineNumbers: true,
-        line: true,
-        // 高级配置（需要引入对应的插件包）,codemirror advanced options(You need to manually introduce the corresponding codemirror function script code)
-        // sublime、emacs、vim三种键位模式，支持你的不同操作习惯
-        keyMap: 'sublime',
-        // 按键映射，比如Ctrl键映射autocomplete，autocomplete是hint代码提示事件
-        extraKeys: { 'Ctrl': 'autocomplete' },
-        // 代码折叠
-        foldGutter: true,
-        gutters: ['CodeMirror-linenumbers', 'CodeMirror-foldgutter'],
-        // 选中文本自动高亮，及高亮方式
-        styleSelectedText: true,
-        highlightSelectionMatches: { showToken: /\w/, annotateScrollbar: true }
-        // more codemirror options...
-        // 如果有hint方面的配置，也应该出现在这里
-      },
       tagText: '',
       categoryList: [],
       toc: '',
@@ -173,15 +102,7 @@ export default {
       'postArticle',
       'editArticle'
     ]),
-    onEditorReady (editor) {
-      // console.log('the editor is readied!', editor)
-      editor.setSize('600px', '800px')
-    },
-    onEditorFocus (editor) {
-      // console.log('the editor is focus!', editor)
-    },
     onEditorCodeChange (newCode) {
-      // console.log('this is new code', newCode)
       this.article.content = newCode
     },
     addTag () {
@@ -197,18 +118,10 @@ export default {
       const routeName = res.dst.replace(/,/g).split(' ').join('-')
       this.article.routename = routeName
     },
-    renderHtml (html) {
-      this.article.html = html
-    },
-    renderToc (html) {
-      this.toc = html
-    },
-    clearToc () {
-      this.toc = ''
-    },
     async postAction () {
       await this.postArticle(this.article)
-      this.$router.replace({name: 'DashBoard'})
+      this.$message({message: '更新成功'})
+      // this.$router.replace({name: 'DashBoard'})
     }
   },
   computed: {
@@ -246,27 +159,34 @@ export default {
       this.article = editJson
     }
   },
-  async mounted () {
-
-  },
   components: {
-    VueMarkdown
+    mavonEditor
   }
 }
 </script>
 <style lang="scss" scoped>
 
 .Article{
-  width: 1200px;
+  width: 90%;
+  min-width: 960px;
   margin: 0 auto;
+  h2{
+    color: #e0e0e0;
+    padding-bottom: 10px;
+    border-bottom: 1px dashed #e0e0e0;
+    margin-bottom: 20px;
+  }
   input[class=routeInput],
-  input[class=title] {
+  input[class=title],
+  input[type=text],
+  {
     width: 100%;
+    border: none;
+    border-bottom: 1px solid #e0e0e0;
   }
   input[class=title]{
     font-size: 20px;
     margin-bottom: 6px;
-
   }
   .router{
     display: flex;
@@ -287,7 +207,7 @@ export default {
 
     .type{
       padding: 0;
-      margin: 0;
+      margin: 0 20px;
       display: flex;
       li{
         input[type=radio]{
@@ -296,7 +216,7 @@ export default {
         }
         cursor: pointer;
         margin-left: -1px;
-        border:1px solid #000;
+        // border:1px solid #000;
         display: flex;
         align-items: center;
         padding: 0 6px;
@@ -338,21 +258,6 @@ export default {
       height: 786px;
       overflow-y: scroll;
     }
-    .toc{
-      position: absolute;
-      right: 0;
-      top: 0;
-      z-index: 100;
-      padding: 3px;
-      border: 1px solid #000;
-      background: #faed7c;
-      font-weight: bold;
-      .toc-title{
-        background: #000;
-        color: #fff;
-        padding: 2px;
-      }
-    }
   }
 }
 .btnBar{
@@ -362,7 +267,7 @@ export default {
     li{
       display: inline-flex;
       padding: 8px 10px;
-      border: 2px solid #000;
+      border: 1px solid #e0e0e0;
       align-items: center;
       cursor: pointer;
     }
@@ -374,6 +279,7 @@ export default {
     }
     .post{
       background: #44b549;
+      border: 1px solid #000;
       color: #fff;
     }
   }

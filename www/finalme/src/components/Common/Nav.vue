@@ -11,12 +11,6 @@
         </div>
         <span>Writing</span>
       </router-link>
-      <!-- <li>
-        <div class="icon">
-          <i class="iconfont">&#xe688;</i>
-        </div>
-        <span>Category</span>
-      </li> -->
       <li class="userInfo" @click="openUser">
         <div class="icon">
           <img src="../../assets/img/avatar.jpg" alt="">
@@ -44,14 +38,14 @@ export default {
 </script>
 <style lang="scss" scoped>
 $height:30px;
-$borderWidth: 2px;
+$borderWidth: 1px;
 $borderColor: #000;
 $borderColorRed: #ff0000;
 $navHeight: $height - $borderWidth * 2;
 $border: $borderWidth solid $borderColor;
 $iconSize: 14px;
 .navBar{
-  width: 1200px;
+  width: 960px;
   height: 50px;
   margin: 0 auto;
   position: relative;
@@ -61,13 +55,13 @@ $iconSize: 14px;
   h1{
     padding: 0;
     margin: 0;
-    width: 190px;
+    // width: 190px;
     height: $height;
     line-height: $height;
-    font-size: 16px;
+    font-size: 20px;
     text-align: center;
-    background: #000;
-    color: #fff;
+    // background: #000;
+    // color: #fff;
     display: inline-block;
     display: flex;
     cursor: pointer;
@@ -98,7 +92,7 @@ $iconSize: 14px;
     li[class=userInfo]{
       background: #efefef;
       img{
-        width: 26px;
+        width: 28px;
         display: block;
       }
     }

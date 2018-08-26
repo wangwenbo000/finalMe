@@ -19,10 +19,10 @@
         <i class="iconfont">&#xe699;</i>
         <span>Writing</span>
       </router-link>
-      <li @click="openSrc">
+      <!-- <li @click="openSrc">
         <i class="iconfont">&#xe709;</i>
         <span>Source</span>
-      </li>
+      </li> -->
       <li @click="openCate">
         <i class="iconfont">&#xe688;</i>
         <span>Categorys</span>
@@ -98,7 +98,7 @@ export default {
 <style lang="scss" scoped>
 .mouseRightClick{
   position: fixed;
-  background: #fff;
+  background: #273544;
   z-index: 1000;
   border: 1px solid #000;
   border-right: 2px solid #000;
@@ -130,6 +130,7 @@ export default {
       font-weight: bold;
       align-items: center;
       width: 100px;
+      color: #aab2bd;
       span{
         margin-left: 6px;
       }

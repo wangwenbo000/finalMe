@@ -9,6 +9,7 @@ import VueCodeMirror from 'vue-codemirror'
 import axios from 'axios'
 import { sync } from 'vuex-router-sync'
 import moment from 'moment'
+import Message from './components/Common/message/index'
 
 sync(store, router)
 Vue.http = Vue.prototype.$http = axios
@@ -16,6 +17,7 @@ Vue.moment = Vue.prototype.$moment = moment
 Vue.use(zPageNav)
 Vue.use(VueCodeMirror)
 Vue.config.productionTip = false
+Vue.prototype.$message = Message
 // 全局拖拽
 Vue.directive('drag', {
   update (el, binding, vnode, oldVnode) {

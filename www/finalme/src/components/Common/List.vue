@@ -59,12 +59,12 @@
       </td>
     </tr>
     <tr class="data" v-for="item in dataList.data" :class="item.show===0&&'topItem' || item.show===1&&'pageItem'">
-      <td>
+      <router-link tag="td" :to="{name:'Article', query:{action:'edit',id:item.id}}">
         <span v-show="!item.show" class="top"><i class="iconfont">&#xe71e;</i></span>
         <strong>{{item.title}}</strong>
         <span class="routename"><i class="iconfont">&#xe616;</i> {{item.routename}}</span>
         <span class="tagname"><i class="iconfont">&#xe719;</i> {{item.tags.split('|').length}}</span>
-      </td>
+      </router-link>
       <td class="tcenter">{{item.comment}}</td>
       <td class="tcenter">{{$moment.unix(item.date).format('llll')}}</td>
       <td class="tcenter">
@@ -72,7 +72,7 @@
           <i class="iconfont">&#xe6b9;</i>
           编辑
         </router-link>
-        <button @click="showDelBoxFn(item.id)">
+        <button @click="showDelBoxFn(item.id)" class="cancelBtn">
           <i class="iconfont">&#xe6bb;</i>
           删除
         </button>
@@ -236,7 +236,7 @@ export default {
   text-align: center;
 }
 .List{
-  width: 1200px;
+  width: 960px;
   margin: 0 auto;
   margin-top: 10px;
 }
@@ -246,7 +246,7 @@ button{
   // padding: 4px 6px;
 }
 input[name=search]{
-  width: 96%;
+  width: 94.7%;
   box-sizing: border-box;
   text-align: left;
 }

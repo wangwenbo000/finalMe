@@ -6,6 +6,7 @@ import Login from './modules/login'
 import List from './modules/list'
 import Count from './modules/Count'
 import Article from './modules/article'
+import Cate from './modules/cate'
 Vue.use(Vuex)
 
 const debug = process.env.NODE_ENV !== 'production'
@@ -16,7 +17,8 @@ export default new Vuex.Store({
     Login,
     List,
     Count,
-    Article
+    Article,
+    Cate
   },
   strict: debug
 })

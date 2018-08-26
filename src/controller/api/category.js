@@ -8,7 +8,7 @@ module.exports = class extends Base {
     const name = this.post('name');
     const describe = this.post('describe');
     const add = await this.model('category').add({
-      name, describe
+      name: name, describe: describe
     });
     return this.success(add);
   }

@@ -6,7 +6,7 @@
        :style="{top:position.y+'px',left:position.x+'px'}">
     <div class="title">
       <div>
-        :: Source 
+        :: Source
       </div>
       <a href="javascript:;" @click="close">
         <i class="iconfont">&#xe6bc;</i>
@@ -74,7 +74,7 @@ export default {
   position: fixed;
   z-index: 100;
   .title{
-    background: #000;
+    background: #324456;
     color: #fff;
     padding: 2px 4px;
     display: flex;

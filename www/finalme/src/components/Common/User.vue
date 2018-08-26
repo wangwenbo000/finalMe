@@ -65,6 +65,7 @@ export default {
   border-bottom: 2px solid #000;
   background: #fff;
   position: fixed;
+  z-index: 1;
   .title{
     background: #000;
     padding: 2px 4px;
