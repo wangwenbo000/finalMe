@@ -596,6 +596,17 @@ footer {
     }
   }
 }
+#vcomments{
+  margin-top: 28px;
+  .vwrap {
+    border: 1px solid #02f;
+    border-radius: 4px;
+    margin-bottom: 10px;
+    overflow: hidden;
+    position: relative;
+    padding: 10px;
+  }
+}
 
 @media screen and (max-width: 640px) {
   article {
