@@ -10,7 +10,20 @@ import axios from 'axios'
 import { sync } from 'vuex-router-sync'
 import moment from 'moment'
 import Message from './components/Common/message/index'
+import VueTippy from 'vue-tippy'
 
+Vue.use(VueTippy)
+// or
+Vue.use(VueTippy, {
+  // flipDuration: 0,
+  // popperOptions: {
+  //   modifiers: {
+  //     preventOverflow: {
+  //       enabled: false
+  //     }
+  //   }
+  // }
+})
 sync(store, router)
 Vue.http = Vue.prototype.$http = axios
 moment.locale('zh-cn')

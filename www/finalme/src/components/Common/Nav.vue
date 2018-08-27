@@ -9,7 +9,10 @@
         <div class="icon">
           <i class="iconfont">&#xe699;</i>
         </div>
-        <span>Writing</span>
+        <span :title="'撰写文章'"
+              v-tippy="{followCursor : true,animateFill: false, theme : 'gradient'}">
+              Writing
+        </span>
       </router-link>
       <li class="userInfo" @click="openUser">
         <div class="icon">
@@ -21,7 +24,10 @@
         <div class="icon">
           <i class="iconfont">&#xe731;</i>
         </div>
-        <span>logOut</span>
+        <span :title="'退出登录'"
+              v-tippy="{followCursor : true,animateFill: false, theme : 'gradient'}">
+              logOut
+        </span>
       </li>
     </ul>
   </div>

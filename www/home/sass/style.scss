@@ -61,6 +61,7 @@ a {
 }
 
 table{
+  width: 100%;
   border-collapse:collapse;
   th{
     background: #abb7bf;
@@ -780,6 +781,9 @@ code{
   background-color: #FFFCE8;
   border:1px solid #0057ff;
   color: #0057ff;
+  word-break: break-all;
+  word-wrap: break-word;
+  white-space: pre-wrap;  
 }
 //.hljs{
 //  code {

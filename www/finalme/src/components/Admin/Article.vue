@@ -11,7 +11,8 @@
            v-model="article.title">
     <div class="router">
       <input type="text" class="routeInput" placeholder="Router Name" v-model="article.routename">
-      <button @click="tranRoute"> <i class="iconfont">&#xe616;</i></button>
+      <button @click="tranRoute" :title="'翻译标题为路由名'"
+                   v-tippy="{followCursor : true, animateFill: false, theme : 'gradient'}"> <i class="iconfont">&#xe616;</i></button>
     </div>
     <div class="tag">
       <select v-model="article.cate">

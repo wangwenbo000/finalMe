@@ -59,11 +59,18 @@
         还没有数据 <router-link tag="a" :to="{name:'Article'}">[发布第一条数据]</router-link>
       </td>
     </tr>
-    <tr class="data" v-for="item in dataList.data" :class="item.show===0&&'topItem' || item.show===1&&'pageItem'">
-      <router-link tag="td" :to="{name:'Article', query:{action:'edit',id:item.id}}">
-        <span v-show="!item.show" class="top"><i class="iconfont">&#xe71e;</i></span>
+    <tr class="data"
+        :class="item.show === 0 && 'topItem' || item.show === 1 && 'pageItem'"
+        v-for="item in dataList.data" >
+      <router-link tag="td"
+                   :to="{name:'Article', query: { action: 'edit', id: item.id }}"
+                   :title="item.routename+' | tags:'+item.tags.split('|').length"
+                   v-tippy="{followCursor : true, animateFill: false, theme : 'gradient'}">
+        <span v-show="!item.show" class="top">
+          <i class="iconfont">&#xe71e;</i>
+        </span>
         <strong>{{item.title}}</strong>
-        <span class="routename"><i class="iconfont">&#xe616;</i>{{item.routename}}</span><br>
+        <!-- <span class="routename"><i class="iconfont">&#xe616;</i>{{item.routename}}</span><br> -->
         <!-- <span class="tagname"><i class="iconfont">&#xe719;</i> {{item.tags.split('|').length}}</span> -->
       </router-link>
       <td class="tcenter">
@@ -74,11 +81,13 @@
       <td class="tcenter">{{item.comment}}</td>
       <td class="tcenter">{{$moment.unix(item.date).format('LLLL')}}</td>
       <td class="tcenter">
-        <router-link tag="button" :to="{name:'Article', query:{action:'edit',id:item.id}}">
+        <router-link tag="button" :to="{name:'Article', query:{action:'edit',id:item.id}}" :title="'编辑'"
+                   v-tippy="{followCursor : true, animateFill: false, theme : 'gradient'}">
           <i class="iconfont">&#xe6b9;</i>
           <!-- 编辑 -->
         </router-link>
-        <button @click="showDelBoxFn(item.id)" class="cancelBtn">
+        <button @click="showDelBoxFn(item.id)" class="cancelBtn" :title="'删除'"
+                   v-tippy="{followCursor : true, animateFill: false, theme : 'gradient'}">
           <i class="iconfont">&#xe6bb;</i>
           <!-- 删除 -->
         </button>
