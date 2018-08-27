@@ -614,9 +614,20 @@ footer {
   .veditor{
     min-height: 0.75em;
   }
+  .vlist .vcard .vh{
+    margin-bottom: 5px;
+    border-bottom: 1px dashed #dbdbdb;
+  }
+  .vlist .vcard .vhead .vsys{
+    display: inline;
+  }
   .vlist .vcard,
   .vlist .vcard .vcontent{
     padding-top: 0;
+  }
+  .vlist .vcard .vquote{
+    background: #f5f5f5;
+    padding: 10px;
   }
   .vlist .vcard .vh .vmeta .vat,
   .vlist .vcard .vhead .vnick{
