@@ -614,7 +614,12 @@ footer {
   .veditor{
     min-height: 0.75em;
   }
-  .vlist .vcard .vh .vmeta .vat{
+  .vlist .vcard,
+  .vlist .vcard .vcontent{
+    padding-top: 0;
+  }
+  .vlist .vcard .vh .vmeta .vat,
+  .vlist .vcard .vhead .vnick{
     color:#02f;
   }
 }
