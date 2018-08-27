@@ -248,6 +248,7 @@ article {
     time {
       display: block;
       text-align: right;
+      margin-bottom: 4px;
     }
   }
   .title {
@@ -596,15 +597,25 @@ footer {
     }
   }
 }
-#vcomments{
+.comment-title{
+  font-size: 22px;
   margin-top: 28px;
+}
+#vcomments{
+  margin-top: 10px;
   .vwrap {
-    border: 1px solid #02f;
+    border: 2px solid #efefef;
     border-radius: 4px;
-    margin-bottom: 10px;
+    margin-bottom: 0px;
     overflow: hidden;
     position: relative;
-    padding: 10px;
+    padding: 0 10px 10px 10px;
+  }
+  .veditor{
+    min-height: 0.75em;
+  }
+  .vlist .vcard .vh .vmeta .vat{
+    color:#02f;
   }
 }
 
