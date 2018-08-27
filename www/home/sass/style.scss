@@ -600,6 +600,11 @@ footer {
 .comment-title{
   font-size: 22px;
   margin-top: 28px;
+  span{
+    font-size: 12px;
+    margin-left: 20px;
+    font-weight: normal;
+  }
 }
 #vcomments{
   margin-top: 10px;
@@ -610,6 +615,9 @@ footer {
     overflow: hidden;
     position: relative;
     padding: 0 10px 10px 10px;
+  }
+  .info{
+    display: none;
   }
   .veditor{
     min-height: 0.75em;
