@@ -1,7 +1,7 @@
 {% extends "./public.html" %}
 {% block content %}
-<script src="static/src/blotter.min.js"></script>
-<script src="static/src/channelSplitMaterial.js"></script>
+<!-- <script src="static/src/blotter.min.js"></script>
+<script src="static/src/channelSplitMaterial.js"></script> -->
 <div class="activeinfo">
   <!-- <h1>专题 / ({{count}})</h1>
   <p>{{config.topicDesc}}</p> -->
@@ -10,26 +10,26 @@
   </div>
 </div>
 <script>
-  var text = new Blotter.Text("WANGWENBO.ME", {
-    family : "'-apple-system','Open Sans',HelveticaNeue-Light,'Helvetica Neue Light','Helvetica Neue',Helvetica,Arial,sans-serif",
-    size : 100,
-    fill : "#02f",
-    paddingLeft : 40,
-    paddingRight : 40
-  });
-  var material = new Blotter.ChannelSplitMaterial();
-  material.uniforms.uOffset.value = 0.14
-  material.uniforms.uRotation.value = 312
+  // var text = new Blotter.Text("WANGWENBO.ME", {
+  //   family : "'-apple-system','Open Sans',HelveticaNeue-Light,'Helvetica Neue Light','Helvetica Neue',Helvetica,Arial,sans-serif",
+  //   size : 100,
+  //   fill : "#02f",
+  //   paddingLeft : 40,
+  //   paddingRight : 40
+  // });
+  // var material = new Blotter.ChannelSplitMaterial();
+  // material.uniforms.uOffset.value = 0.14
+  // material.uniforms.uRotation.value = 312
   // window.onmousemove = function(){
   //   console.log(getMousePos().x/360/3)
   //   material.uniforms.uOffset.value = getMousePos().x/360/3
   // }
-  var blotter = new Blotter(material, {
-    texts : text
-  });
-  var elem = document.getElementById("effect");
-  var scope = blotter.forText(text);
-  scope.appendTo(elem);
+  // var blotter = new Blotter(material, {
+  //   texts : text
+  // });
+  // var elem = document.getElementById("effect");
+  // var scope = blotter.forText(text);
+  // scope.appendTo(elem);
   
   // function getMousePos(event) {
   //     var e = event || window.event;

@@ -13,15 +13,15 @@
   display:none;
 }
 ::-moz-selection{
-  background:#0057ff;
+  background:$main-link-color;
   color: #FFF;
 }
 ::selection{
-  background:#0057ff;
+  background:$main-link-color;
   color: #FFF;
 }
 ::-webkit-selection{
-  background:#0057ff;
+  background:$main-link-color;
   color: #FFF;
 }
 h1, h2, h3, h4, h5, h6 {
@@ -98,7 +98,7 @@ header {
   display: flex;
   justify-content: space-between;
   a{
-    color: #02f;
+    color: $main-link-color;
     @include transition-property(color);
     @include transition-duration(.4s);
     &:hover{
@@ -191,7 +191,7 @@ header {
   a{
     display: inline-block;
     text-indent: 20px;
-    color: #02F;
+    color: $main-link-color;
   }
 }
 
@@ -202,14 +202,15 @@ header {
   overflow: auto;
   li{
     float: left;
-    font-size: $global-font-size;
+    font-size: 12px;
     margin: 0 10px 10px 0;
     padding: 2px 2px 2px 10px;
     height: 20px;
     line-height: 20px;
-    background-color: #FFFCE8;
+    // background-color: #FFFCE8;
+    background-color: #fbd757;
     border-radius: 20px;
-    border: 1px solid $blue-link-color;
+    // border: 1px solid $blue-link-color;
     @include transition-property(background-color);
     @include transition-duration(.4s);
     &:hover{
@@ -252,13 +253,13 @@ article {
     }
   }
   .title {
-    font-size: 24px;
+    font-size: 2em;
     line-height: 1.2;
-    font-weight: bold;
+    font-weight: 300;
     padding-bottom: 10px;
     display: flex;
     align-items: center;
-    color: #565656;
+    color: #333;
     a{
       color: #565656;
       transition: color .3s;
@@ -278,7 +279,7 @@ article {
     }
   }
   .entry-content {
-    color: #666666;
+    color: #444;
     font-size: 16px;
     margin-top: 20px;
     line-height: 1.8;
@@ -339,7 +340,7 @@ article {
     
     blockquote {
       border-left: 4px solid $blue-link-color;
-      padding: 20px 30px;
+      padding: 12px 30px;
       background: #fbfbfb;
       margin: 20px 0;
       overflow: auto;
@@ -435,8 +436,9 @@ article {
   }
   #effect{
     height: 150px;
-    display: flex;
+    display: none;
     justify-content: center;
+    background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAMAAAAp4XiDAAABL1BMVEX/8h0REREAAA///xz//x4AAAz//yL//yD/9h3/9hsAAA7//h1lYSD/8Bz/+R1QThP/8h4AABL/9B3/8xwnJRb//yX66x4AAAkqKBQKCBEODhALDRA4NhU3NRMXFxITExHVzByGghzv5xtgXRYwLhb/9yDc1B/y5x3/+xyKgBywqRqXkhp2chlSUBmRjBhrahU/PRRVURMEBBH/+x/j2R//+B388B336h3o3B3azx3Hvx3Sxxy+tByooRuhmxuKhRulnRqUlBlYVhgcGhUWFBMnJRL+8yN8dyBcWyC7sh/KwR60rB7z6h3LwR2Ujx1oZR2EfhuclBqBehpxbBZiYBZLSBY0MhYjIRXX1yXe3yP66h/67R767h3t4B3c2h2lpR12bh1BQBteWhq2rhg7ORMNMpJxAAACT0lEQVRIx+2Tx3LbMBRFabwHggJCSiTD0BJlFatYirrce5Vr3Ft6//9viESvSCCJNJPJymfzZjhzCFzgQnvmn5GaVBCIMJqAiGMqb2Zn5zTXTYVznAUT+l4QPCwJUekGQXdRpMZRvvl8fwnF4oCQgQVjKQ8+TS8BWAeU5v6iCAjBRunuhiFgvXR3ZVh/MtyPy69CmK7rH96Hk6VSmus4CVdpGKJ08DJkesjTzN1XaqZgjKGpVKDLSQz6aInaeet762RerST5VAw6Ywm2wzndZnJDFgGhR+IKyQLAD2LTC1lxDw8relJWZuZRP7PT9rWssIv9cjmXiSuZXLn8ePluoTrnSIrX9DlN5+NKPkMI7SFATYtiIXhFn/DfKPeY0GI4c4XVt8Xpmey+YmPZ7KDJJAVf22lS9ITekuLzrIdWJaXJCrdpnQH0bPmQEURNk5UdSvyvugGqQ7aU78VaL3VKZ9YkiikQGZiTKKN2O66mVH4CIpiaGrVSrn4urDjuuEpIENh7YEyiZPp90gNDGR/D+PkpzmkMP4ksnsdY2NrcKhhDxQ7yx5cvYhwffdncWo0uxDY5oc3wKklu3tNjeBuE8G0WKwxJ0/pI4eTgEyRijCrIG1GF7XDi1z1gXUrsFYzENBhjG3y4CkazVNuN3WKn2Wnvtq+XjUiXVm5vOze7jXYhmsUEhqMnRtd1RCdyNLjOKU3qTNUA/Yr27Q2USr7aJ3wPHE0BO+LEPpGVArF5S36VT3ezdr42K/3NWT49Xasayo6ZgIiWKX02MGzyM/+TX6E3QT8VGKxsAAAAAElFTkSuQmCC);
   }
 }
 
@@ -520,13 +522,13 @@ footer {
   background: #FFFCE8;
   text-align: center;
   line-height: 30px;
-  color: #0057ff;
+  color: $main-link-color;
   font-weight: bold;
   font-size: 12px;
   left: 50%;
   bottom: 90px;
   margin-left: 490px;
-  border: 1px solid #0057ff;
+  border: 1px solid $main-link-color;
   border-radius: 3px;
 }
 .pagination-index{
@@ -549,7 +551,7 @@ footer {
   }
 }
 .pagination {
-  border: 1px solid #02f;
+  border: 1px solid $main-link-color;
   overflow: auto;
   display: inline-flex;
   zoom: 1;
@@ -571,7 +573,7 @@ footer {
       color: #fff;
     }
     &:last-child{
-      border-left: 1px solid #02f;
+      border-left: 1px solid $main-link-color;
     }
   }
   .archive {
@@ -821,12 +823,12 @@ code{
   font-family: Consolas,Monaco,'Andale Mono',monospace;
   font-size: 80%;
   margin: 0 2px;
-  padding: 4px 5px;
+  padding: 2px 4px;
   vertical-align: middle;
-  border-radius: 5px;
+  border-radius: 3px;
   background-color: #FFFCE8;
-  border:1px solid #0057ff;
-  color: #0057ff;
+  border:1px solid $main-link-color;
+  color: $main-link-color;
   word-break: break-all;
   word-wrap: break-word;
   white-space: pre;  
