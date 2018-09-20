@@ -439,7 +439,7 @@ article {
     text-align: justify;
     color: #626262;
     font-size: 16px;
-    padding-bottom: 30px;
+    padding-bottom: 20px;
     margin-bottom: 20px;
     border-bottom: $solid-border;
   }
@@ -453,6 +453,7 @@ article {
 
 .archives {
   padding: 0 20px;
+  margin-bottom: 30px;
   h1{
     font-weight: bold;
     font-size: 20px;

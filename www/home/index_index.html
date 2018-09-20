@@ -47,19 +47,19 @@
   {% endfor %}
 </ul>
 {% for list in cate_list %}
-<section class="archives">
   {% if list.list.length %}
-    <h1 class="year" name="{{list.name}}">{{list.name}}&nbsp;({{list.list.length}})</h1>
+  <section class="archives" id="{{list.name}}">
+      <h1 class="year" name="{{list.name}}">{{list.name}}&nbsp;({{list.list.length}})</h1>
+    <ul>
+      {% for post in list.list %}
+      <li><a href="/article/{{post.routename}}">{{post.title}}</a>
+        &nbsp;
+        <time datetime="{{think.datetime(post.date*1000,'YYYY-MM-DD HH:mm:ss')}}" pubdate><i>( {{think.datetime(post.date*1000, 'MM月DD, YYYY')}} )</i></time>
+      </li>
+      {% endfor %}
+    </ul>
+  </section>
   {% endif %}
-  <ul>
-    {% for post in list.list %}
-    <li><a href="/article/{{post.routename}}">{{post.title}}</a>
-      &nbsp;
-      <time datetime="{{think.datetime(post.date*1000,'YYYY-MM-DD HH:mm:ss')}}" pubdate><i>( {{think.datetime(post.date*1000, 'MM月DD, YYYY')}} )</i></time>
-    </li>
-    {% endfor %}
-  </ul>
-</section>
 {% endfor %}
 <div class="activeinfo">
   <h1>标签</h1>
