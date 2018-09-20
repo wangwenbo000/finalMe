@@ -47,11 +47,14 @@ module.exports = class extends Base {
       date: timeStamp,
       lastdate: timeStamp
     };
+    const pushUrl = `http://www.wangwenbo.me/article/${dataJSON.routename}.html`;
     if (think.isEmpty(data.id)) {
       await this.model('article').add(dataJSON);
+      await this.pushBaiDuUrl('add', pushUrl);
     } else {
       delete dataJSON.date;
       await this.model('article').where({id: data.id}).update(dataJSON);
+      await this.pushBaiDuUrl('update', pushUrl);
     }
 
     return this.success();
@@ -60,5 +63,24 @@ module.exports = class extends Base {
     const id = this.post('id');
     const data = await this.model('article').where({id: parseInt(id)}).find();
     return this.success(data);
+  }
+  // 百度链接实时手动推送接口
+  async pushBaiDuUrl(action, url) {
+    const site = 'www.wangwenbo.me';
+    const token = 'Bypwxwk1t804JAxQ';
+    if (action === 'add') {
+      await axios({
+        url: `http://data.zz.baidu.com/urls?site=${site}&token=${token}`,
+        method: 'post',
+        data: url
+      });
+    }
+    if (action === 'update') {
+      await axios({
+        url: `http://data.zz.baidu.com/update?site=${site}&token=${token}`,
+        method: 'post',
+        data: url
+      });
+    }
   }
 };
