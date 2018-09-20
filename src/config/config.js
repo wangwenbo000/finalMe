@@ -21,7 +21,7 @@ module.exports = {
   // icp备案号
   icp: '16006848号-1',
   // 每页显示多少数据
-  pagesize: 2,
+  pagesize: 6,
   // 后台每页显示多少数据
   adminPageSize: 20,
   // 站点域名

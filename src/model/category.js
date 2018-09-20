@@ -5,6 +5,7 @@ module.exports = class extends think.Model {
         type: think.Model.HAS_MANY,
         key: 'id',
         fKey: 'cateid',
+        order: 'date DESC',
         name: 'list',
         relation: false,
         where: {show: ['NOTIN', [0, 1, 2, 4]]},
