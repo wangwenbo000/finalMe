@@ -27,7 +27,7 @@ gulp.task('template', function() {
       minifyJS: true,
       processConditionalComments: true,
       processScripts: ['text/html'],
-      removeAttributeQuotes: true,
+      // removeAttributeQuotes: true,
       removeComments: true,
       removeEmptyAttributes: true,
       // removeOptionalTags: true,
