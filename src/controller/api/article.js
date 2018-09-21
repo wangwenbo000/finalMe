@@ -50,11 +50,11 @@ module.exports = class extends Base {
     const pushUrl = `https://www.wangwenbo.me/article/${dataJSON.routename}.html`;
     if (think.isEmpty(data.id)) {
       await this.model('article').add(dataJSON);
-      await this.pushBaiDuUrl('add', pushUrl);
+      // await this.pushBaiDuUrl('add', pushUrl);
     } else {
       delete dataJSON.date;
       await this.model('article').where({id: data.id}).update(dataJSON);
-      await this.pushBaiDuUrl('update', pushUrl);
+      // await this.pushBaiDuUrl('update', pushUrl);
     }
 
     return this.success();
@@ -68,15 +68,16 @@ module.exports = class extends Base {
   async pushBaiDuUrl(action, url) {
     const site = 'www.wangwenbo.me';
     const token = 'Bypwxwk1t804JAxQ';
+    const pushData = null;
     if (action === 'add') {
-      await axios({
+      pushData = await axios({
         url: `http://data.zz.baidu.com/urls?site=${site}&token=${token}`,
         method: 'post',
         data: url
       });
     }
     if (action === 'update') {
-      await axios({
+      pushData = await axios({
         url: `http://data.zz.baidu.com/update?site=${site}&token=${token}`,
         method: 'post',
         data: url
