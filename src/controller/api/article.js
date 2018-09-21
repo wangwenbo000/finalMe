@@ -47,7 +47,7 @@ module.exports = class extends Base {
       date: timeStamp,
       lastdate: timeStamp
     };
-    const pushUrl = `http://www.wangwenbo.me/article/${dataJSON.routename}.html`;
+    const pushUrl = `https://www.wangwenbo.me/article/${dataJSON.routename}.html`;
     if (think.isEmpty(data.id)) {
       await this.model('article').add(dataJSON);
       await this.pushBaiDuUrl('add', pushUrl);
