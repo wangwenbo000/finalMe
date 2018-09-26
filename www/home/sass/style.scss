@@ -574,7 +574,7 @@ footer {
     color: $blue-link-color;
     span{
       display: block;
-      font-size: 24px;
+      font-size: 17px;
       font-weight: bold;
       margin-top: 10px;
     }
@@ -842,6 +842,11 @@ code{
   word-break: break-all;
   word-wrap: break-word;
   white-space: pre;  
+}
+pre{
+  code{
+    border:none;
+  }
 }
 //.hljs{
 //  code {
