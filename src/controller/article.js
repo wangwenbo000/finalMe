@@ -16,7 +16,7 @@ module.exports = class extends Base {
       highlight: function(str, lang) {
         if (lang && hljs.getLanguage(lang)) {
           try {
-            return '<pre class="' + lang + 'hljs"><code>' +
+            return '<pre class="' + lang + ' hljs"><code>' +
               hljs.highlight(lang, str, true).value +
               '</code></pre>';
           } catch (__) {
