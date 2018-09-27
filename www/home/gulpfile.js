@@ -43,8 +43,10 @@ gulp.task('template', function() {
     // .pipe(replace('CHANGE_VALUE_NO', 'WWB_' + md5(new Date().getTime())))
     .pipe(gulp.dest('../../view/'));
 });
-
+gulp.task('sitemap', function() {
+  return gulp.src('./*.xml')
+    .pipe(gulp.dest('../../view/'));
+});
 gulp.task('sass:watch', function() {
-  gulp.watch('./sass/*.scss', ['sass', 'template']);
-  gulp.watch('./*.html', ['template']);
+  gulp.watch('./sass/*.scss', ['sass', 'template', 'sitemap']);
 });

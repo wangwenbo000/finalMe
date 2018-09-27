@@ -9,7 +9,7 @@
     <author>
         <name><![CDATA[{{siteInfo.website_author_name }}]]></name>
     </author>
-    <generator uri="http://wangwenbo.me/">wangwenbo.me</generator>
+    <generator uri="https://wangwenbo.me/">wangwenbo.me</generator>
     {% for post in list %}
     <entry>
         <title type="html"><![CDATA[{{title}}]]></title>
