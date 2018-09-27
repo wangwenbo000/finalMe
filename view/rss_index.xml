@@ -1,25 +1,23 @@
-<?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom">
-
-    <title><![CDATA[{{title}}]]></title>
-    <link href="{{domain}}/rss.html" rel="self"/>
-    <link href="{{domain}}"/>
-    <updated>{{updateTime}}</updated>
-    <id>{{domain}}</id>
-    <author>
-        <name><![CDATA[{{siteInfo.website_author_name }}]]></name>
-    </author>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+<channel>
+    <title>{{config.title}}</title>
+    <atom:link>{{config.domain}}</atom:link>
+    <description>专注 WEB 端开发，关注 WEB 性能。</description>
+    <atom:link href="{{config.domain}}/rss.html" rel="self"/>
+    <language>zh-cn</language>
+    <lastBuildDate>{{think.datetime(updateTime*1000)}}</lastBuildDate>
     <generator uri="https://wangwenbo.me/">wangwenbo.me</generator>
     {% for post in list %}
-    <entry>
-        <title type="html"><![CDATA[{{title}}]]></title>
-        <link href="{{domain}}/{{ post.routename }}"/>
-        <updated>{{post.lastdate }}</updated>
-        <id>{{domain}}/{{ post.routename }}</id>
-        <content type="html">
-            {{post.content}}
-            <a href="{{domain}}/{{ post.routename }}">阅读全文</a>
-        </content>
-    </entry>
+    <item>
+        <title>{{post.title}}</title>
+        <link href="{{config.domain}}/{{ post.routename }}.html"/>
+        <description>
+            {{post.content+'<a href='}}
+            {{config.domain}}/{{ post.routename }}.html{{'>阅读全文</a>'}}
+        </description>
+        <pubDate>{{think.datetime(post.date*1000) }}</pubDate>
+        <guid>{{config.domain}}/{{ post.routename }}</guid>
+    </item>
     {% endfor %}
-</feed>
+</channel>
+</rss>

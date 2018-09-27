@@ -1,8 +1,8 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 {% for post in list %}
   <url>
-    <loc>https://wangwenbo.me/article/{{post.routename}}.html</loc>
-    <lastmod>{{think.datetime(post.date,'YYYY-MM-DD')}}</lastmod>
+    <loc>{{config.domain}}/article/{{post.routename}}.html</loc>
+    <lastmod>{{think.datetime(post.date*1000,'YYYY-MM-DD')}}</lastmod>
     <priority>0.6</priority>
   </url>
 {% endfor %}
