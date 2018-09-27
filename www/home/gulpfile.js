@@ -49,7 +49,7 @@ gulp.task('sitemap', function() {
     .pipe(gulp.dest('../../view/'));
 });
 gulp.task('start', function() {
-  gulp.watch('./sass/*.scss', ['sass']);
+  gulp.watch('./sass/*.scss', ['sass', 'template']);
   gulp.watch('./*.html', ['template']);
   gulp.watch('./*.xml', ['sitemap']);
 });
