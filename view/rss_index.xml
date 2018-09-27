@@ -2,7 +2,7 @@
 <channel>
     <title>{{config.title}}</title>
     <atom:link>{{config.domain}}</atom:link>
-    <description>专注 WEB 端开发，关注 WEB 性能。</description>
+    <description>设计,前端,交互,实验媒体,javascript,html5,折腾。</description>
     <atom:link href="{{config.domain}}/rss.html" rel="self"/>
     <language>zh-cn</language>
     <lastBuildDate>{{think.datetime(updateTime*1000)}}</lastBuildDate>
