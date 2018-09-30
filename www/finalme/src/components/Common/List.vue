@@ -1,13 +1,27 @@
 <template>
 <div class="List">
   <table>
+    <!-- 功能栏 -->
     <tr>
-      <td style="position:relative" colspan="3">
-        <input type="text" placeholder="keywords search" name="search" autocomplete="off" @input="searchInput" v-model="keywords">
-        <div class="SearchSuggest" v-show="showSuggest">
+      <!-- 搜索 -->
+      <td style="position:relative">
+        <!-- 文章搜索 -->
+        <input type="text"
+               placeholder="keywords search"
+               name="search"
+               autocomplete="off"
+               @input="searchInput"
+               v-model="keywords">
+        <!-- 搜索推荐下拉 -->
+        <div class="SearchSuggest"
+             v-show="showSuggest">
           <ul>
-            <li v-for="item in searchList" :class="item.show===0&&'topItem' || item.show===1&&'pageItem'" @click="typeInKeyword(item.title)">
-              <span v-show="!item.show" class="top"><i class="iconfont">&#xe71e;</i></span>
+            <li v-for="item in searchList"
+                :class="item.show===0&&'topItem' || item.show===1&&'pageItem'"
+                @click="typeInKeyword(item.title)" :key="item.id">
+              <span v-show="!item.show" class="top">
+                <i class="iconfont">&#xe71e;</i>
+              </span>
               {{item.title}}
             </li>
           </ul>
@@ -16,25 +30,35 @@
           <i class="iconfont">&#xe6dd;</i>
         </button>
       </td>
+      <!-- 向google推送sitemap -->
       <td colspan="2">
+        <button>
+          Notify&nbsp;<img src="../../assets/img/google.png" width="50">&nbsp;update siteMap
+        </button>
+      </td>
+      <!-- 文章类型筛选 -->
+      <td colspan="3">
         <button :class="$route.query.filter === 'list'? 'greenBtn':'blackBtn'"
                 @click="showList()">
-                <i class="iconfont">&#xe684;</i>
+                <img src="../../assets/img/list.png" width="12">
         </button>
-        <button class="blackBtn" @click="lodaData($route.query.page || 1)"><i class="iconfont">&#xe6ea;</i></button>
+        <button class="blackBtn"
+                @click="lodaData($route.query.page || 1)">
+                <img src="../../assets/img/refresh.png" width="12">
+        </button>
         <button @click="filterData(3)"
                 :class="$route.query.filter === 'article'? 'greenBtn':'blackBtn'">
-                <i class="iconfont">&#xe6a0;</i> 已发布
+                 <img src="../../assets/img/post.png" width="12">&nbsp;已发布
         </button>
         <button @click="filterData(2)"
                 :class="$route.query.filter === 'drafs'? 'greenBtn':'blackBtn'">
-                <i class="iconfont">&#xe6b6;</i> 草稿箱
+                <img src="../../assets/img/draft.png" width="12">&nbsp;草稿箱
         </button>
         <button @click="filterData(1)"
                 :class="$route.query.filter === 'page'? 'greenBtn':'blackBtn'">
-                <i class="iconfont">&#xe6b6;</i> 页面
+                <img src="../../assets/img/page.png" width="12">&nbsp;页面
         </button>
-        <span v-show="loadingData" class="spinner spinnerBig"></span>
+        <!-- <span v-show="loadingData" class="spinner spinnerBig"></span> -->
       </td>
     </tr>
     <!-- <tr>
@@ -43,32 +67,37 @@
       </td>
     </tr> -->
     <tr>
-      <th>Title | route | tags</th>
-      <th>category</th>
+      <th>Title</th>
+      <th width="156">Category</th>
       <th width="10">Comment</th>
-      <th width="220">Date</th>
+      <th width="140">Date</th>
+      <th width="58">Push</th>
       <th width="86">Action</th>
     </tr>
     <tr v-show="actMsg">
-      <td colspan="5" align="center" style="background:#44b549;color:#fff;">
+      <td colspan="6" align="center" style="background:#44b549;color:#fff;">
         数据删除成功
       </td>
     </tr>
     <tr v-if="dataList.count === 0">
-      <td colspan="4" align="center" style="background:#faed7c;">
+      <td colspan="6" align="center" style="background:#faed7c;height:20px;">
         还没有数据 <router-link tag="a" :to="{name:'Article'}">[发布第一条数据]</router-link>
       </td>
     </tr>
     <tr class="data"
         :class="item.show === 0 && 'topItem' || item.show === 1 && 'pageItem'"
-        v-for="item in dataList.data" >
+        v-for="(item,index) in dataList.data" :key="item.id">
       <router-link tag="td"
                    :to="{name:'Article', query: { action: 'edit', id: item.id }}"
                    :title="item.routename+' | tags:'+item.tags.split('|').length"
                    v-tippy="{followCursor : true, animateFill: false, theme : 'gradient'}">
-        <span v-show="!item.show" class="top">
+        <!-- <span v-show="!item.show" class="top">
           <i class="iconfont">&#xe71e;</i>
-        </span>
+        </span> -->
+        <img src="../../assets/img/top.png" v-show="!item.show" width="14">
+        <img src="../../assets/img/draft.png" v-if="item.show===2" width="12">
+        <img src="../../assets/img/post.png" v-if="item.show===3" width="12">
+        <img src="../../assets/img/page.png" v-if="item.show===1" width="12">&nbsp;
         <strong>{{item.title}}</strong>
         <!-- <span class="routename"><i class="iconfont">&#xe616;</i>{{item.routename}}</span><br> -->
         <!-- <span class="tagname"><i class="iconfont">&#xe719;</i> {{item.tags.split('|').length}}</span> -->
@@ -79,15 +108,32 @@
         </strong>
       </td>
       <td class="tcenter">{{item.comment}}</td>
-      <td class="tcenter">{{$moment.unix(item.date).format('LLLL')}}</td>
+      <td class="tcenter"
+          :title="$moment.unix(item.date).format('LLLL')"
+          v-tippy="{followCursor : true, animateFill: false}">{{$moment.unix(item.date).format('ll')}}</td>
+      <td :title="item.sync?'已推送':'向百度推送本文链接'"
+          v-tippy="{followCursor : true, animateFill: false}">
+        <a href="javascript:;"
+           class="syncBdBtn unlink"
+           v-if="item.sync"
+           @click="delBdLink">
+        </a>
+        <a href="javascript:;"
+           class="syncBdBtn"
+           :class="item.sync===0?'syncBdBtnGray':''"
+           @click="pushUrlForBd((item.date===item.lastdate), item.routename, index, item.id)"></a>
+
+      </td>
       <td class="tcenter">
         <router-link tag="button" :to="{name:'Article', query:{action:'edit',id:item.id}}" :title="'编辑'"
                    v-tippy="{followCursor : true, animateFill: false, theme : 'gradient'}">
           <i class="iconfont">&#xe6b9;</i>
           <!-- 编辑 -->
         </router-link>
-        <button @click="showDelBoxFn(item.id)" class="cancelBtn" :title="'删除'"
-                   v-tippy="{followCursor : true, animateFill: false, theme : 'gradient'}">
+        <button @click="showDelBoxFn(item.id)"
+                class="cancelBtn"
+                :title="'删除'"
+                v-tippy="{followCursor : true, animateFill: false, theme : 'gradient'}">
           <i class="iconfont">&#xe6bb;</i>
           <!-- 删除 -->
         </button>
@@ -100,7 +146,7 @@
       </td>
     </tr>
     <tr>
-      <td colspan="5">
+      <td colspan="6">
         <zpagenav :page="dataList.currentPage"
           :page-size="dataList.pagesize"
           :total="dataList.count"
@@ -110,6 +156,9 @@
       </td>
     </tr>
   </table>
+  <div id="titleMorInfo">
+
+  </div>
   <MsgBox :show="showDelBox"
           @close="closeDelBox"
           @submit="delAction"
@@ -121,7 +170,7 @@
 </template>
 <script>
 import MsgBox from './MessageBox'
-import { mapActions, mapState } from 'vuex'
+import { mapActions, mapState, mapMutations } from 'vuex'
 import Chart from '@/components/Common/Chart'
 export default {
   name: 'List',
@@ -157,12 +206,31 @@ export default {
     ...mapActions([
       'getList',
       'search',
-      'delitem'
+      'delitem',
+      'pushBd'
+    ]),
+    ...mapMutations([
+      'changePushState'
     ]),
     async lodaData (page) {
-      this.loadingData = true
+      // this.loadingData = true
+      this.$message({message: '数据请求', type: 'info'})
       await this.getList()
-      this.loadingData = false
+      // this.loadingData = false
+      this.$message({message: '数据请求完成'})
+    },
+    async pushUrlForBd (action, url, index, id) {
+      this.$message({message: '推送请求已发送', type: 'info'})
+      const res = await this.pushBd({action, url, id})
+      if (res.data.data.hasOwnProperty('error')) {
+        this.$message({message: res.data.errmsg, type: 'error'})
+      } else {
+        this.$message({message: `已经把链接推送给百度了, ${res.data.errmsg}`})
+        this.changePushState(index)
+      }
+    },
+    async delBdLink () {
+
     },
     showList () {
       this.$router.push({
@@ -178,6 +246,9 @@ export default {
     },
     closeDelBox (boolean) {
       this.showDelBox = boolean
+    },
+    closePushErr (boolean) {
+      this.showPushErr = boolean
     },
     pageHandler (page) {
       const filter = this.$route.query.filter || 'list'
@@ -255,13 +326,31 @@ export default {
   margin: 0 auto;
   margin-top: 10px;
 }
-button{
+.syncBdBtn{
   display: inline-block;
-  width: auto;
+  background: url('../../assets/img/bd.jpg') no-repeat center;
+  width: 16px;
+  height: 16px;
+}
+.unlink{
+  background: url('../../assets/img/unlink.png') no-repeat center;
+}
+.syncBdBtnGray{
+  -webkit-filter: grayscale(100%);
+  -moz-filter: grayscale(100%);
+  -ms-filter: grayscale(100%);
+  -o-filter: grayscale(100%);
+  filter: grayscale(100%);
+  filter: gray;
+}
+button{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   // padding: 4px 6px;
 }
 input[name=search]{
-  width: 94.7%;
+  width: 90%;
   box-sizing: border-box;
   text-align: left;
 }
@@ -318,11 +407,11 @@ input[name=search]{
   color:#ff0000;
 }
 .topItem{
-  background: #faed7c;
+  background: #f0ebc0;
   cursor: pointer;
 }
 .pageItem{
-  background: #dfeefb;
+  background: #e3eaf0;
   cursor: pointer;
 }
 </style>

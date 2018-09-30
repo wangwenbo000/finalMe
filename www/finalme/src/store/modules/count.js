@@ -18,15 +18,22 @@ const state = {
     thinkV: '0.0.0'
   },
   weather: {
-    city: '??',
-    data: {
-      ganmao: '??',
-      pm10: 0,
-      pm25: 0,
-      quality: '??',
-      shidu: '??',
-      wendu: '??'
+    now: {
+      cloud: '0',
+      cond_code: '101',
+      cond_txt: '实况天气状况描述',
+      fl: '??',
+      hum: '??',
+      pcpn: '0.0',
+      pres: '1013',
+      tmp: '??',
+      vis: '??',
+      wind_deg: '355',
+      wind_dir: '北风',
+      wind_sc: '3',
+      wind_spd: '17'
     }
+
   }
 }
 const mutations = {
@@ -53,7 +60,7 @@ const actions = {
       method: 'post'
     })
     setTimeout(() => {
-      commit('sWeather', weather.data.data)
+      commit('sWeather', weather.data.data.HeWeather6[0])
     }, 300)
   },
   async delCache () {

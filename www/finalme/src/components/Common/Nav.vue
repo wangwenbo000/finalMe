@@ -4,8 +4,8 @@
       <img src="../../assets/img/avatar.jpg" alt="" width="30">
       FinalMe DashBoard
     </router-link>
-    <ul class="menu">
-      <router-link :to="{name:'Article', query:{action:'add'}}" tag="li">
+    <ul class="menu" v-if="$route.name!=='Article'">
+      <router-link :to="{name:'Article', query:{action:'add'}}" tag="li" class="writing">
         <div class="icon">
           <i class="iconfont">&#xe699;</i>
         </div>
@@ -45,7 +45,7 @@ export default {
 <style lang="scss" scoped>
 $height:30px;
 $borderWidth: 1px;
-$borderColor: #000;
+$borderColor: #efefef;
 $borderColorRed: #ff0000;
 $navHeight: $height - $borderWidth * 2;
 $border: $borderWidth solid $borderColor;
@@ -77,13 +77,21 @@ $iconSize: 14px;
   }
   .menu{
     display: flex;
+    .writing{
+      background: #0059ff;
+      color: #fff;
+      .icon{
+        border-right: 1px solid #003cac;
+      }
+    }
     li{
-      border: $border;
+      // border: $border;
       height: $navHeight;
       line-height: $navHeight;
       margin-left: 6px;
       text-align: center;
       display: flex;
+      background: #fff;
       cursor: pointer;
       &:hover{
         background: #ccc;
@@ -99,17 +107,17 @@ $iconSize: 14px;
       }
     }
     li[class=userInfo]{
-      background: #efefef;
+      // background: #efefef;
       img{
         width: 28px;
         display: block;
       }
     }
     li[class=logOut]{
-      border-color: $borderColorRed;
-      color: $borderColorRed;
+      // border-color: $borderColorRed;
+      // color: $borderColorRed;
       .icon{
-        border-right-color: $borderColorRed;
+        // border-right-color: $borderColorRed;
       }
     }
   }

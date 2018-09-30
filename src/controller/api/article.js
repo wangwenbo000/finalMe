@@ -64,16 +64,57 @@ module.exports = class extends Base {
     const data = await this.model('article').where({id: parseInt(id)}).find();
     return this.success(data);
   }
+  async pushUrlForBdAction() {
+    const o = this.post();
+    const bAction = o.action;
+    const routename = o.url;
+    const id = o.id;
+    const action = bAction ? 'add' : 'update';
+    const url = `https://www.wangwenbo.me/article/${routename}.html`;
+    const res = await this.pushBaiDuUrl(action, url);
+    if (res.hasOwnProperty('error')) {
+      let message = '';
+      switch (res.message) {
+        case 'site error':
+          message = '站点未在站长平台验证';
+          break;
+        case 'empty content':
+          message = 'post内容为空';
+          break;
+        case 'only 2000 urls are allowed once':
+          message = '每次最多只能提交2000条链接';
+          break;
+        case 'over quota':
+          message = '超过每日配额了，超配额后再提交都是无效的';
+          break;
+        case 'token is not valid':
+          message = 'token错误';
+          break;
+        case 'not found':
+          message = '接口地址填写错误';
+          break;
+        case 'internal error, please try later':
+          message = '服务器偶然异常，通常重试就会成功';
+          break;
+      }
+      return this.success(res, message);
+    } else {
+      await this.model('article').updateSync(id);
+      return this.success(res, `今日还可以推送${res.remain}条`);
+    }
+  }
   // 百度链接实时手动推送接口
   async pushBaiDuUrl(action, url) {
     const site = 'www.wangwenbo.me';
     const token = 'Bypwxwk1t804JAxQ';
-    const pushData = null;
+    let pushData = null;
     if (action === 'add') {
       pushData = await axios({
         url: `http://data.zz.baidu.com/urls?site=${site}&token=${token}`,
         method: 'post',
         data: url
+      }).catch(err => {
+        return err.response.data;
       });
     }
     if (action === 'update') {
@@ -81,7 +122,10 @@ module.exports = class extends Base {
         url: `http://data.zz.baidu.com/update?site=${site}&token=${token}`,
         method: 'post',
         data: url
+      }).catch(err => {
+        return err.response.data;
       });
     }
+    return pushData.data;
   }
 };

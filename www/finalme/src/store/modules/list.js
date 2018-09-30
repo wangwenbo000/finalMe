@@ -17,6 +17,9 @@ const mutations = {
       return item.id !== id
     })
     state.list.data = list
+  },
+  changePushState (state, index) {
+    state.list.data[index].sync = 1
   }
 }
 const actions = {
@@ -67,6 +70,19 @@ const actions = {
       }
     })
     commit('delItem', id)
+  },
+  async pushBd ({commit}, o) {
+    const res = await axios({
+      url: api.pushUrlForBd,
+      method: 'POST',
+      data: o
+    }).catch(res => {
+      console.log(res)
+    })
+    return res
+  },
+  async delBdLink ({commit}, o) {
+
   }
 }
 const getters = {

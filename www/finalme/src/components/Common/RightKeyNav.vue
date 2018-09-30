@@ -19,10 +19,10 @@
         <i class="iconfont">&#xe699;</i>
         <span>Writing</span>
       </router-link>
-      <!-- <li @click="openSrc">
+      <li @click="openSrc">
         <i class="iconfont">&#xe709;</i>
         <span>Source</span>
-      </li> -->
+      </li>
       <li @click="openCate">
         <i class="iconfont">&#xe688;</i>
         <span>Categorys</span>

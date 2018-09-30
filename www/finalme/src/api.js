@@ -45,6 +45,7 @@ const api = {
   updateCate: `${apiBaseUrl}category/updateCate`,
   delCate: `${apiBaseUrl}category/delCate`,
   postArticle: `${apiBaseUrl}article/postArticle`,
-  updateArticle: `${apiBaseUrl}article/updateArticle`
+  updateArticle: `${apiBaseUrl}article/updateArticle`,
+  pushUrlForBd: `${apiBaseUrl}article/pushUrlForBd`
 }
 export default api

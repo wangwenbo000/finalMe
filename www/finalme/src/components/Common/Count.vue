@@ -23,7 +23,7 @@
         <span>Think Vesion</span>
         <h2>{{count.thinkV}}</h2>
       </li>
-      <li>
+      <li class="upTime">
         <span>UpTime</span>
         <h2>{{parseInt(count.OSi.uptime/60/60)}}h</h2>
       </li>
@@ -42,29 +42,35 @@
       <li>
         <span>Cache</span>
         <div class="spinner" v-show="showCacheLoad"></div>
-        <button class="yellowBtn cleanRunTime" @click="showCacheBoxFn">清除缓存</button>
+        <button class="yellowBtn cleanRunTime" @click="showCacheBoxFn">
+          <img src="../../assets/img/clear.png" alt="">
+        </button>
       </li>
       <li>
         <span>Backup</span>
-        <div class="backSQL">
+        <!-- <div class="backSQL">
           <i class="iconfont">&#xe69b;</i>
-        </div>
+        </div> -->
+        <button class="yellowBtn cleanRunTime" @click="showCacheBoxFn">
+          <img src="../../assets/img/sql.png" alt="">
+        </button>
       </li>
     </ul>
-    <ul class="left">
+    <ul class="left lastCountBox">
       <li class="weather">
         <span>Weather</span>
-        <h2>{{weather.data.wendu}}℃</h2>
+        <h2>{{weather.now.tmp}}℃</h2>
       </li>
       <li class="weatherInfo">
-        <div><strong>pm2.5: {{weather.data.pm25}}</strong></div>
-        <div>湿度: {{weather.data.shidu}}</div>
-        <div>空气质量:
+        <div><strong>{{weather.now.cond_txt}}</strong></div>
+        <div>体感温度: {{weather.now.fl}}℃</div>
+        <div>湿度: {{weather.now.hum}}</div>
+        <!-- <div>空气质量:
           <span :style="weather.data.quality==='重度污染'&&'color:#ff0000;'">
-            <span v-text="weather.data.quality==='重度污染'?'😷':''"></span>
+          <span v-text="weather.data.quality==='重度污染'?'😷':''"></span>
             {{weather.data.quality}}
           </span>
-        </div>
+        </div> -->
       </li>
     </ul>
 
@@ -93,7 +99,9 @@ export default {
   },
   async created () {
     await this.getCount()
-    await this.getWeather()
+    if (process.env.NODE_ENV !== 'development') {
+      await this.getWeather()
+    }
   },
   computed: {
     ...mapState({
@@ -134,14 +142,19 @@ export default {
   width: 960px;
   margin: 0 auto;
   display: flex;
+
   .left{
     display: flex;
     margin-right: 6px;
+    .upTime{
+      width: 100px;
+    }
+
     li{
       padding: 10px 10px 8px 10px;
-      background: #efefef;
+      background: #fff;
       height: 52px;
-      border: 1px solid #000;
+      border: 1px solid #efefef;
       margin-left: -2px;
       &:first-child{
         margin: 0;
@@ -180,6 +193,7 @@ export default {
           height: 42px;
           background: #44b549;
           transition: width .6s;
+          overflow: hidden;
         }
       }
     }
@@ -199,12 +213,18 @@ export default {
       background: url('../../assets/img/sky.jpg') no-repeat center;
       background-size: cover;
       color: #fff;
+      width: 44%;
     }
     .weatherInfo{
       display: flex;
+      width: 56%;
       flex-direction: column;
       justify-content: space-between;
     }
+  }
+  .lastCountBox{
+    margin-right: 0;
+    width: 100%;
   }
 }
 

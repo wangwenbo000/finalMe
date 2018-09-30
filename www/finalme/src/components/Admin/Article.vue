@@ -133,6 +133,22 @@ export default {
     }
   },
   async created () {
+    let _this = this
+    window.onbeforeunload = function (e) {
+      console.log(_this.$route.fullPath)
+      if (_this.$route.fullPath === '/Article?action=add') {
+        e = e || window.event
+          // 兼容IE8和Firefox 4之前的版本
+        if (e) {
+          e.returnValue = '关闭提示'
+        }
+          // Chrome, Safari, Firefox 4+, Opera 12+ , IE 9+
+        return '关闭提示'
+      } else {
+        window.onbeforeunload = null
+      }
+    }
+
     setInterval(() => {
       this.getNowFormatDate = this.$moment().format('MMMM Do YYYY, h:mm:ss a')
     }, 1000)
@@ -164,6 +180,14 @@ export default {
   },
   components: {
     mavonEditor
+  },
+  beforeRouteLeave (to, from, next) {
+    const answer = window.confirm('确认离开当前页面？你有未保存的数据！')
+    if (answer) {
+      next()
+    } else {
+      next(false)
+    }
   }
 }
 </script>
@@ -186,7 +210,7 @@ export default {
     width: 100%;
     border: none;
     border-bottom: 1px solid #e0e0e0;
-    padding-left: 0;
+    padding-left: 12px;
   }
   input[class=title]{
     font-size: 20px;
@@ -266,6 +290,7 @@ export default {
 .btnBar{
   display: flex;
   justify-content: space-between;
+  margin-bottom: 20px;
   ul{
     li{
       display: inline-flex;

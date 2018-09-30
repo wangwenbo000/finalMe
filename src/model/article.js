@@ -18,4 +18,7 @@ module.exports = class extends think.Model {
       .countSelect(pnPosition);
     return list;
   }
+  async updateSync(id) {
+    this.setRelation(false).where({id: id}).update({sync: 1});
+  }
 };

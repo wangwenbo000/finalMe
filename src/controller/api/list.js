@@ -60,15 +60,17 @@ module.exports = class extends Base {
   }
 
   async getWeatherAction() {
-    const uri = 'http://www.sojson.com/open/api/weather/json.shtml';
+    const uri = 'https://free-api.heweather.com/s6/weather/now';
     const weather = await axios({
       url: uri,
       method: 'get',
       params: {
-        city: '北京'
+        location: '北京',
+        key: '61f141a54cae490bbac449cb5070c6af'
       }
     });
     return this.success(weather.data);
+    // console.log(weather.data);
   }
 
   async delCacheAction() {
