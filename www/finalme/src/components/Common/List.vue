@@ -145,7 +145,7 @@
         </button> -->
       </td>
     </tr>
-    <tr>
+    <tr class="pageNav">
       <td colspan="6">
         <zpagenav :page="dataList.currentPage"
           :page-size="dataList.pagesize"
@@ -321,6 +321,9 @@ export default {
 .tcenter{
   text-align: center;
 }
+.pageNav td{
+  border-top:2px solid #efefef;
+}
 .List{
   width: 960px;
   margin: 0 auto;
@@ -409,10 +412,16 @@ input[name=search]{
 .topItem{
   background: #f0ebc0;
   cursor: pointer;
+  td{
+    border: 1px solid #e0dec8;
+  }
 }
 .pageItem{
   background: #e3eaf0;
   cursor: pointer;
+  td{
+    border: 1px solid #d0dde8;
+  }
 }
 </style>
 
