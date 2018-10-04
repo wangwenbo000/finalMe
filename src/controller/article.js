@@ -7,22 +7,24 @@ module.exports = class extends Base {
   async itemAction(http) {
     const routename = this.get('routename');
     var list = await this.modelInstance.where({'routename': routename}).select();
-    var hljs = require('highlight.js');
+    // var hljs = require('highlight.js');
+    const Prism = require('prismjs');
+    const loadLanguages = require('prismjs/components/');
+    loadLanguages(['javascript', 'bash', 'objectivec']);
     var md = require('markdown-it')({
       html: true,
       linkify: false,
       typography: true,
       breaks: true,
-      highlight: function(str, lang) {
-        if (lang && hljs.getLanguage(lang)) {
-          try {
-            return '<pre><code class="' + lang + ' hljs">' +
-              hljs.highlight(lang, str, true).value +
-              '</code></pre>';
-          } catch (__) {
-          }
+      highlight(str, lang) {
+        let hl;
+        try {
+          hl = Prism.highlight(str, Prism.languages[lang], lang);
+        } catch (error) {
+          console.error(error);
+          hl = md.utils.escapeHtml(str);
         }
-        return '<pre class="hljs"><code>' + md.utils.escapeHtml(str) + '</code></pre>';
+        return `<pre class="language-${lang}"><b class="name">${lang}</b><code class="language-${lang}">${hl}</code></pre>`;
       }
     });
     // md.use(require('markdown-it-for-inline'), 'url_new_win', 'link_open', function(tokens, idx) {
@@ -42,6 +44,7 @@ module.exports = class extends Base {
       tocFirstLevel: 2,
       anchorLinkSpace: true
     });
+    // md.use(require('markdown-it-prism'), {});
 
     list[0].content = md.render(list[0].content);
     this.assign({
