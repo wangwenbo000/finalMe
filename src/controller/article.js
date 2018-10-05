@@ -10,7 +10,7 @@ module.exports = class extends Base {
     // var hljs = require('highlight.js');
     const Prism = require('prismjs');
     const loadLanguages = require('prismjs/components/');
-    loadLanguages(['javascript', 'bash', 'objectivec']);
+    loadLanguages(['javascript', 'bash', 'objectivec', 'swift']);
     var md = require('markdown-it')({
       html: true,
       linkify: false,
@@ -27,9 +27,9 @@ module.exports = class extends Base {
         return `<pre class="language-${lang}"><b class="name">${lang}</b><code class="language-${lang}">${hl}</code></pre>`;
       }
     });
-    // md.use(require('markdown-it-for-inline'), 'url_new_win', 'link_open', function(tokens, idx) {
-    //   tokens[idx].attrPush([ 'target', '_blank' ]);
-    // });
+    md.use(require('markdown-it-for-inline'), 'url_new_win', 'link_open', function(tokens, idx) {
+      tokens[idx].attrPush([ 'target', '_blank' ]);
+    });
     md.use(require('markdown-it-for-inline'), 'lazyload', 'image', function(tokens, idx) {
       tokens[idx].attrPush([ 'class', 'lazyload' ]);
       tokens[idx].attrPush([ 'data-src', tokens[idx].attrs[0][1] ]);

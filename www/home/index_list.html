@@ -4,16 +4,22 @@
 <article>
   <div class="meta">
     <time datetime="{{think.datetime(list.date,'YYYY-MM-DD HH:mm:ss')}}" pubdate>
-      {{controller.date(list.date)}}
+      {{controller.date(list.date)}} in <a href="/categories.html#{{list.cateName.name}}" name="{{list.cateName.name}}">&nbsp;
+        {{list.cateName.name}}</a>
     </time>
-    <div class="comment">
-      <a href="/article/{{list.routename}}.html#disqus_thread">{{list.comment}}&nbsp;Comments</a>
+    <div class="tags">
+      <!-- <a href="/article/{{list.routename}}.html#disqus_thread">{{list.comment}}&nbsp;Comments</a> -->
+      {%if list.tags!=='' %}
+      {% for tags in list.tags|tags %}
+      <a href="/tag/{{tags}}.html">{{tags}}</a>
+      {% endfor %}
+      {% endif %}
     </div>
-    <div class="category">
+    <!-- <div class="category">
       <a href="/categories.html#{{list.cateName.name}}" id="{{list.cateName.name}}">
         &nbsp;/&nbsp;
         {{list.cateName.name}}</a>
-    </div>
+    </div> -->
   </div>
   <h1 class="title">
     <a href="/article/{{list.routename}}.html">{{list.title}}</a>

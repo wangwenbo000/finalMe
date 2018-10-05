@@ -37,10 +37,10 @@
   <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
 </head>
 <script>
-  function getRelativePath(a,b){var e,c=a.split("/"),d="";for(e=0;e<c.length-b;e++)d+=c[e]+"/";return d}var whir=window.whir||{};whir.res={pageVersion:"<{##vMd5##}>",loadJs:function(a,b,c){var d,e;window.localStorage?(e=localStorage.getItem(a),null==e||0==e.length||this.pageVersion!=localStorage.getItem("version")?(window.ActiveXObject?d=new ActiveXObject("Microsoft.XMLHTTP"):window.XMLHttpRequest&&(d=new XMLHttpRequest),null!=d&&(d.open("GET",b+'?r='+Date.parse(new Date())),d.send(null),d.onreadystatechange=function(){4==d.readyState&&200==d.status&&(e=d.responseText,localStorage.setItem(a,e),localStorage.setItem("version",whir.res.pageVersion),e=null==e?"":e,whir.res.writeJs(e),null!=c&&c())})):(whir.res.writeJs(e),null!=c&&c())):whir.res.linkJs(b)},loadCss:function(a,b){var c,d;window.localStorage?(d=localStorage.getItem(a),null==d||0==d.length||this.pageVersion!=localStorage.getItem("version")?(window.ActiveXObject?c=new ActiveXObject("Microsoft.XMLHTTP"):window.XMLHttpRequest&&(c=new XMLHttpRequest),null!=c&&(c.open("GET",b+'?r='+Date.parse(new Date())),c.send(null),c.onreadystatechange=function(){4==c.readyState&&200==c.status&&(d=c.responseText,localStorage.setItem(a,d),localStorage.setItem("version",whir.res.pageVersion),d=null==d?"":d,d=d.replace(/\..\/fonts\//g,getRelativePath(b,2)+"fonts/"),whir.res.writeCss(d))})):(d=d.replace(/\..\/fonts\//g,getRelativePath(b,2)+"fonts/"),whir.res.writeCss(d))):whir.res.linkCss(b)},writeJs:function(a){var b=document.getElementsByTagName("HEAD").item(0),c=document.createElement("script");c.type="text/javascript",c.innerHTML=a,b.appendChild(c)},writeCss:function(a){var b=document.getElementsByTagName("HEAD").item(0),c=document.createElement("style");c.type="text/css",c.innerHTML=a,b.appendChild(c)},linkJs:function(a){var b=document.getElementsByTagName("HEAD").item(0),c=document.createElement("script");c.type="text/javascript",c.src=a,b.appendChild(c)},linkCss:function(a){var b=document.getElementsByTagName("HEAD").item(0),c=document.createElement("link");c.type="text/css",c.rel="stylesheet",c.rev="stylesheet",c.media="screen",c.href=a,b.appendChild(c)}};
-  whir.res.loadCss("style", "/static/finalme/css/home_style.css", null)
-  whir.res.loadJs("lazyLoad", "/static/finalme/js/lazyLoad.min.js", null)
-  whir.res.loadJs("smoothScroll", "/static/finalme/js/smoothScroll.min.js", null)
+  function getRelativePath(a, b) { var e, c = a.split('/'), d = ''; for (e = 0; e < c.length - b; e++)d += c[e] + '/'; return d } var whir = window.whir || {}; whir.res = {pageVersion: '<{##vMd5##}>', loadJs: function(a, b, c) { var d, e; window.localStorage ? (e = localStorage.getItem(a), e==null || e.length==0 || this.pageVersion != localStorage.getItem('version') ? (window.ActiveXObject ? d = new ActiveXObject('Microsoft.XMLHTTP'):window.XMLHttpRequest && (d = new XMLHttpRequest()), d!=null && (d.open('GET', b + '?r=' + Date.parse(new Date())), d.send(null), d.onreadystatechange = function() { d.readyState==4 && d.status==200 && (e = d.responseText, localStorage.setItem(a, e), localStorage.setItem('version', whir.res.pageVersion), e = e==null ? '':e, whir.res.writeJs(e), c!=null && c()) })):(whir.res.writeJs(e), c!=null && c())):whir.res.linkJs(b) }, loadCss: function(a, b) { var c, d; window.localStorage ? (d = localStorage.getItem(a), d==null || d.length==0 || this.pageVersion != localStorage.getItem('version') ? (window.ActiveXObject ? c = new ActiveXObject('Microsoft.XMLHTTP'):window.XMLHttpRequest && (c = new XMLHttpRequest()), c!=null && (c.open('GET', b + '?r=' + Date.parse(new Date())), c.send(null), c.onreadystatechange = function() { c.readyState==4 && c.status==200 && (d = c.responseText, localStorage.setItem(a, d), localStorage.setItem('version', whir.res.pageVersion), d = d==null ? '':d, d = d.replace(/\..\/fonts\//g, getRelativePath(b, 2) + 'fonts/'), whir.res.writeCss(d)) })):(d = d.replace(/\..\/fonts\//g, getRelativePath(b, 2) + 'fonts/'), whir.res.writeCss(d))):whir.res.linkCss(b) }, writeJs: function(a) { var b = document.getElementsByTagName('HEAD').item(0), c = document.createElement('script'); c.type = 'text/javascript', c.innerHTML = a, b.appendChild(c) }, writeCss: function(a) { var b = document.getElementsByTagName('HEAD').item(0), c = document.createElement('style'); c.type = 'text/css', c.innerHTML = a, b.appendChild(c) }, linkJs: function(a) { var b = document.getElementsByTagName('HEAD').item(0), c = document.createElement('script'); c.type = 'text/javascript', c.src = a, b.appendChild(c) }, linkCss: function(a) { var b = document.getElementsByTagName('HEAD').item(0), c = document.createElement('link'); c.type = 'text/css', c.rel = 'stylesheet', c.rev = 'stylesheet', c.media = 'screen', c.href = a, b.appendChild(c) }};
+  whir.res.loadCss('style', '/static/finalme/css/home_style.css', null);
+  whir.res.loadJs('lazyLoad', '/static/finalme/js/lazyLoad.min.js', null);
+  whir.res.loadJs('smoothScroll', '/static/finalme/js/smoothScroll.min.js', null);
 </script>
 <body>
 {% if isSupportBrowser %}
@@ -53,7 +53,9 @@
       <p class=subtitle>·&nbsp;{{config.subtitle}}</p>
     </div>
     <nav class="header_right" role="navigation">
-      <a href="/" class="menu home">🐔</a>
+      <a href="/" class="menu home">
+        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAMAAADXqc3KAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAACylBMVEX///+kAACkAACkAACnAgKkAAC4HBzEnwCpCwLMmQDHowXOsSXOsSbFoQDGpQTk0mrl027DpQDFogTHowTl0mTl02rFoADNrh/QsCXFoALn1Wvo1nHIpwfGowPn02Hn1GXNrRrOrh7jzVLizVfEogSqjgrDoQThzFHhy1HCoASYghAwMEAkJEkxMTFZVSS2lwnLqxnm0l3m0VzLqxqylApPTiguNDQwODgvNDSCcBiihw6yaQeqEwKxaAeehQ57axssNDgkNzeAgIAzMzMuLjopOjosMjIrNjYuNDovNjYsNTUtPDwAAADkV1flV1fwPDyuGQ/JMjKwCAj588C/UDy4HBy/UD348sPy5pn58bf1652wGxPmV1fwPT2wGxT07KT48bzy5p768bL26o7165qwHBSwHBb07KX58bb68rT47I3265H06pzSiGG6IiDRiGjz66j06pv27Jb687r575336oT265D165vx5KHPgmOvGxavGxfPg2nv46z07Kj576Pw44v67o326oH3643165iMi2mMi27y67Py67WLi3L066P165n26o337ZTx5ZL47qb463z36n3364j265JBRkBARkDy6qtARkFARUD16pP364b4763576T563b36Xj364pBRj/065717KD265P26oz364L464D476vx44T67ID46XHsw1jcjy7CZxTIYgrPYwfBZxTdjzHsxWD36nr57Ify5Ir774v452fRZwvlhzPvlEDzm0j3nkn3nkjlhjTSaA736HH67pH88qP66mrosT7RZwrliTX2mkL1hRj2mkHlijbSZwzotEX56nH78aj88Zb66V713FvdjCPUbhbqjjrdjSX022D56WX78Jjy4n/88JX76mTcljbKUwLKUgLdlTf56GL762j78Jfy4oL88Z7874KxHA7WGhqxHA/87YL78J+wGxDWGxv////tASO4AAAATXRSTlMAAQhx42v3PfAPqfX1Oer5+hHtrPr6PvX1g/7+xPL+/vX1+fntSO/6+vBUEAcaOsD4/v74xkssIDFuqeT+5a95QA4CChYfKS8sJh0RATtaMwEAAAABYktHRACIBR1IAAAAB3RJTUUH2gQbAAAADenjtwAAAXpJREFUKM9jYEAARkYGbICJmYWFmQmLBCubry8bK6Y4O4efv78fBzuaMCcXd0BgUFBgAA8XJ7I4Lx9/cEion19oWLgAHy9CXFAoIjIqOiY2NiYuPiFRSBAuISySlJySCpJIS0/JEBWGiYuJZ2Zl5+Tm+fnl5RcUFhVLiEElJKVKSsvKKyqrqmtq68rL6qUloRIyDY1NzS2tbe0dnW1d3T29fTJQCdn+CRMnTZ4ytW7a9BmFMyfNmi0Lk5gzd17T/AVTFi6aOmXxkqXLlsMkZFasXLV6zdp169ev27Bx0+YtW2FGScpt275j567de/bu3rVv/4GD8jDLxRQOHT5y9NjxEydOnjp95uw5RTG4B5XOX7h46fKVK5evXrt+Q1kYKUhu3rp94c7de/cfPHz0WAURJAyqaupPnj57/vzFy1camlracHEdXT19A8PXb968NjI2MTXT1YHLaJtbWFpZ29jY2tk7WJg7IkWIk7OLq5u7hYenl7eODwN5AADzCIVVkOuBRgAAACV0RVh0ZGF0ZTpjcmVhdGUAMjAxOC0wNi0yOFQyMjozMjozOSswODowMDtP0FEAAAAldEVYdGRhdGU6bW9kaWZ5ADIwMTAtMDQtMjdUMDA6MDA6MDArMDg6MDAOParMAAAAQ3RFWHRzb2Z0d2FyZQAvdXNyL2xvY2FsL2ltYWdlbWFnaWNrL3NoYXJlL2RvYy9JbWFnZU1hZ2ljay03Ly9pbmRleC5odG1svbV5CgAAABh0RVh0VGh1bWI6OkRvY3VtZW50OjpQYWdlcwAxp/+7LwAAABd0RVh0VGh1bWI6OkltYWdlOjpIZWlnaHQAMjTYjGyAAAAAFnRFWHRUaHVtYjo6SW1hZ2U6OldpZHRoADI0ICOsDQAAABl0RVh0VGh1bWI6Ok1pbWV0eXBlAGltYWdlL3BuZz+yVk4AAAAXdEVYdFRodW1iOjpNVGltZQAxMjcyMjk3NjAwGzuxLgAAABF0RVh0VGh1bWI6OlNpemUAMTI5M0IQMWwHAAAAXnRFWHRUaHVtYjo6VVJJAGZpbGU6Ly8vaG9tZS93d3dyb290L25ld3NpdGUvd3d3LmVhc3lpY29uLm5ldC9jZG4taW1nLmVhc3lpY29uLmNuL3NyYy8zMDYvMzA2MzkucG5n5Y9NPAAAAABJRU5ErkJggg==">
+      </a>
       <!-- <a href="/categories.html" class="menu">专题</a> -->
       <a href="/list.html" class="menu">列表</a>
       <a href="/archives.html" class="menu">归档</a>
@@ -82,25 +84,24 @@
   {{config.title}}&nbsp;-&nbsp;
     <a href="http://www.miitbeian.gov.cn/" target="_blank">鲁ICP备&nbsp;{{config.icp}}&nbsp;号</a>
     &nbsp;
-    <script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1256496453'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s95.cnzz.com/z_stat.php%3Fid%3D1256496453' type='text/javascript'%3E%3C/script%3E"));</script>
+    <script type="text/javascript">var cnzz_protocol = (('https:' == document.location.protocol) ? ' https://' : ' http://'); document.write(unescape("%3Cspan id='cnzz_stat_icon_1256496453'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s95.cnzz.com/z_stat.php%3Fid%3D1256496453' type='text/javascript'%3E%3C/script%3E"));
+</script>
   </p>
 </footer>
-<script>  
-  if(('standalone' in window.navigator)&&window.navigator.standalone){  
-      var noddy,remotes=false;  
-      document.addEventListener('click',function(event){  
-        noddy=event.target;  
-        while(noddy.nodeName!=='A'&&noddy.nodeName!=='HTML') noddy=noddy.parentNode;  
-        if('href' in noddy&&noddy.href.indexOf('http')!==-1
-        &&
-        (noddy.href.indexOf(document.location.host)!==-1
-        ||
-        remotes)){  
-          event.preventDefault();  
-          document.location.href=noddy.href;  
-        }  
-      },false);  
-  }  
+<script>
+  if (('standalone' in window.navigator) && window.navigator.standalone) {
+    var noddy, remotes = false;
+    document.addEventListener('click', function(event) {
+      noddy = event.target;
+      while (noddy.nodeName !== 'A' && noddy.nodeName !== 'HTML') noddy = noddy.parentNode;
+      if ('href' in noddy && noddy.href.indexOf('http') !== -1      &&
+      (noddy.href.indexOf(document.location.host) !== -1      ||
+      remotes)) {
+        event.preventDefault();
+        document.location.href = noddy.href;
+      }
+    }, false);
+  }
 </script> 
 </body>
 </html>
