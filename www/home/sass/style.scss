@@ -107,7 +107,8 @@ header {
   display: flex;
   justify-content: space-between;
   a {
-    color: $main-link-color;
+    // color: $main-link-color;
+    color: #565656;
     @include transition-property(color);
     @include transition-duration(0.4s);
     &:hover {
