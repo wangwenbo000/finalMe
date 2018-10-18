@@ -28,7 +28,9 @@ module.exports = class extends Base {
       }
     });
     md.use(require('markdown-it-for-inline'), 'url_new_win', 'link_open', function(tokens, idx) {
-      tokens[idx].attrPush([ 'target', '_blank' ]);
+      if (tokens[idx].attrs[1]) {
+        tokens[idx].attrPush([ 'target', '_blank' ]);
+      }
     });
     md.use(require('markdown-it-for-inline'), 'lazyload', 'image', function(tokens, idx) {
       tokens[idx].attrPush([ 'class', 'lazyload' ]);
