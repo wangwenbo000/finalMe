@@ -673,21 +673,21 @@ footer {
   dd{
     display: inline-block;
     margin: 10px 10px 0 0;
-    width: 74px;
+    width: 75px;
     height: 100px;
     overflow: hidden;
     background: $border-color-grey;
     border-radius: 3px;
     padding: 6px;
     padding-bottom: 0;
-    &:nth-child(10){
+    &:nth-child(9){
       margin-right: 0;
     }
     img{
       border: none;
       display: block;
-      width: 74px;
-      height: 74px;
+      width: 75px;
+      height: 75px;
       overflow: hidden;
       border-radius: 2px;
       background: #fff;
