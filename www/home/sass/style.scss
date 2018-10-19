@@ -665,7 +665,6 @@ footer {
 .sharelink{
   width: 100%;
   margin: 0;
-  margin-top: 10px;
   // dt{
   //   font-size: 16px;
   //   font-weight: bold;
@@ -673,7 +672,7 @@ footer {
   // }
   dd{
     display: inline-block;
-    margin: 0 10px 10px 0;
+    margin: 10px 10px 0 0;
     width: 75px;
     height: 100px;
     overflow: hidden;
@@ -689,6 +688,8 @@ footer {
       display: block;
       width: 75px;
       height: 75px;
+      overflow: hidden;
+      border-radius: 2px;
       background: #fff;
     }
     a{
