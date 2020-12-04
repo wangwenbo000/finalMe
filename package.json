@@ -12,7 +12,7 @@
     "axios": "^0.16.2",
     "eslint-config-standard": "^10.2.1",
     "eslint-plugin-html": "^4.0.1",
-    "highlight.js": "^9.12.0",
+    "highlight.js": "^10.4.1",
     "markdown-it": "^8.4.0",
     "markdown-it-for-inline": "^0.1.1",
     "markdown-it-imsize": "^2.0.1",
