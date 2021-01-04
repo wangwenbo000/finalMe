@@ -9,7 +9,7 @@
     "lint-fix": "eslint --fix src/"
   },
   "dependencies": {
-    "axios": "^0.16.2",
+    "axios": "^0.21.1",
     "eslint-config-standard": "^10.2.1",
     "eslint-plugin-html": "^4.0.1",
     "highlight.js": "^9.12.0",
